@@ -1,5 +1,5 @@
 import React from 'react'
-import { HStack, Box, Image, Heading, Stack, Button } from '@chakra-ui/react'
+import { HStack, Box, Image, Heading, Stack, Button, Circle } from '@chakra-ui/react'
 import {StarIcon} from '@chakra-ui/icons'
 
 
@@ -19,17 +19,17 @@ const movies = [
         id: 2,
         title: 'LightYear',
         description: 'Buena pelicula',
-        img: 'https://pics.filmaffinity.com/Lightyear-654887286-large.jpg',
+        img: 'https://www.prensario.net/Multimedios/imgs/50253_750.jpg',
         rating: 3.6,
-        reviewCount: 54
+        reviewCount: 20
     },
     {
         id: 3,
         title: 'Guardianes de la galaxia',
         description: 'una peli mas de superheroe',
-        img: 'https://pics.filmaffinity.com/Guardianes_de_la_galaxia-595487268-large.jpg',
-        rating: 4.2,
-        reviewCount: 54
+        img: 'https://es.web.img3.acsta.net/newsv7/22/01/29/15/21/4874804.jpg',
+        rating: 2,
+        reviewCount: 12
     }
 ]
 
@@ -47,14 +47,22 @@ const BannerTop = () => {
 
   return (
     <>
-        <Box bg='green.300' w='100%' h={'320px'} p={4} color='white'>
+        <Box display={'flex'} bg='green.300' w='100%' h={'320px'} p={4} color='white'>
+            
+            {movies.map(e=> <Box display={'flex'} px='5px'>
+                <Box mx={'3px'}>
+                <Circle size='40px' bg='tomato' color='white'>
+                    {e.rating}
+                </Circle>
+                </Box>
+            
             <HStack spacing='24px'>
                 <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200'>
-                    <Image h='55%' borderTopRadius={'lg'} src={'https://i.blogs.es/79f36c/portada-analisis-trailer-arcane-league-of-legends/1366_2000.jpeg'} alt={''} />
+                    <Image h='55%' borderTopRadius={'lg'} src={e.img} alt={''} />
 
                     <Box h='25%'>
                         <Heading as='h3' size='lg'>
-                            Titulo movie
+                            {e.title}
                         </Heading>
                     </Box>
 
@@ -62,14 +70,14 @@ const BannerTop = () => {
                         
                         <Stack direction={'row'} spacing='5px' p={2} w='100%'>
                             <Box display={'flex'} alignItems='center'  w='60%' h='40px' bg='blue.300' fontSize={'xs'}>
-                                {Arcane.reviewCount} Votos
+                                {e.reviewCount} Votos
 
                             {Array(5)
                                 .fill('')
                                 .map((_, i) => (
                                 <StarIcon
                                     key={i}
-                                    color={i < Arcane.rating ? 'teal.500' : 'gray.300'}
+                                    color={i < e.rating ? 'teal.500' : 'gray.300'}
                                 />
                                 ))}
                             </Box>
@@ -84,6 +92,9 @@ const BannerTop = () => {
 
                 </Box>
             </HStack>
+            </Box>
+            )        
+}
         </Box>
 
     </>
