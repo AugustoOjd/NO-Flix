@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Center, IconButton, Stack, HStack, Divider } from '@chakra-ui/react'
+import { Box, IconButton, Stack, HStack, Divider } from '@chakra-ui/react'
 import {AiFillInstagram, AiFillFacebook, AiFillTwitterCircle, AiFillGithub} from 'react-icons/ai'
 
 const Footer = () => {

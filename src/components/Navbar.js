@@ -6,7 +6,7 @@ import Links from './NavbarComponents/Links'
 const Navbar = () => {
   return (
     <>
-        <Box position={'fixed'}  bg='tomato' w='100%' h={'90px'} p={4} color='white'>
+        <Box position={'sticky'} top='0'  bg='tomato' w='100%' h={'90px'} p={4} color='white'>
             
             <Flex alignItems='center'>
                 <Box>

@@ -1,5 +1,7 @@
 import React from 'react'
-import { HStack, Box, Button } from '@chakra-ui/react'
+import { HStack, Button } from '@chakra-ui/react'
+import { NavLink } from 'react-router-dom'
+
 
 const Links = () => {
   return (
@@ -7,7 +9,7 @@ const Links = () => {
         <HStack spacing='25px'>
 
         <Button colorScheme='white' variant='link' size={'lg'}>
-            Inicio
+            <NavLink to={'/'}>Inicio</NavLink>
         </Button>
 
 
@@ -16,8 +18,8 @@ const Links = () => {
         </Button>
 
 
-        <Button colorScheme='white' variant='link' size={'lg'}>
-            Terror
+        <Button colorScheme='white' variant='link' size={'lg'}> 
+            <NavLink to={'/terror'}> Terror </NavLink>
         </Button>         
 
 
