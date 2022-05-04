@@ -12,7 +12,7 @@ const AllMovies = () => {
         img: 'https://i.blogs.es/79f36c/portada-analisis-trailer-arcane-league-of-legends/1366_2000.jpeg',
         rating: 4,
         reviewCount: 54,
-        category: 'animada'
+        category: 'animadas'
     },
 
     {
@@ -22,7 +22,7 @@ const AllMovies = () => {
         img: 'https://www.prensario.net/Multimedios/imgs/50253_750.jpg',
         rating: 3.6,
         reviewCount: 23,
-        category: 'animada'
+        category: 'animadas'
     },
     
     {
@@ -50,7 +50,7 @@ const AllMovies = () => {
         img: 'https://pictures.abebooks.com/isbn/9791090870000-es.jpg',
         rating: 2,
         reviewCount: 71,
-        category: 'animada'
+        category: 'animadas'
     },
     {
         id: 6,

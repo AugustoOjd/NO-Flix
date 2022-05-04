@@ -3,6 +3,7 @@ import Banner from "./components/Banner";
 import BannerTop from "./components/BannerTop";
 import Footer from "./components/Footer";
 import MovieInfoContainer from "./components/MovieInfoContainer";
+import FiltroMovies from "./components/FiltroMovies";
 import Navbar from "./components/Navbar";
 import {
   BrowserRouter as Router,
@@ -22,7 +23,7 @@ function App() {
           <Route path="/" index element={<AllMovies/>}>
             
           </Route>
-          <Route path="/terror" element={ <MovieInfoContainer/>}>
+          <Route path="/:categoria" element={ <FiltroMovies/>}>
           
           </Route>
       </Routes>

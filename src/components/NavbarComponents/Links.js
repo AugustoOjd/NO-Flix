@@ -9,26 +9,36 @@ const Links = () => {
         <HStack spacing='25px'>
 
         <Button colorScheme='white' variant='link' size={'lg'}>
-            <NavLink to={'/'}>Inicio</NavLink>
+            <NavLink to={'/'}>
+                Inicio
+            </NavLink>
         </Button>
 
 
         <Button colorScheme='white' variant='link' size={'lg'}>
-            Accion
+            <NavLink to={'/accion'}>
+                Accion
+            </NavLink>
+
         </Button>
 
-
         <Button colorScheme='white' variant='link' size={'lg'}> 
-            <NavLink to={'/terror'}> Terror </NavLink>
+            <NavLink to={'/terror'}> 
+                Terror 
+            </NavLink>
         </Button>         
 
 
         <Button colorScheme='white' variant='link' size={'lg'}>
-            Animadas
+            <NavLink to={'/animadas'}>
+                Animadas
+            </NavLink>  
         </Button>
 
         <Button colorScheme='white' variant='link' size={'lg'}>
-            Top 10
+            <NavLink to={'/favoritas'}>
+                Favoritas
+            </NavLink>
         </Button>
 
         </HStack>
