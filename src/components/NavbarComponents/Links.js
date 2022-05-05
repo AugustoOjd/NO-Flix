@@ -37,7 +37,7 @@ const Links = () => {
 
         <Button colorScheme='white' variant='link' size={'lg'}>
             <NavLink to={'/favoritas'}>
-                Favoritas
+                Favoritas +
             </NavLink>
         </Button>
 

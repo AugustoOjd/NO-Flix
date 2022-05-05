@@ -1,12 +1,21 @@
 import React from 'react'
-import {Box, Stack, Image, Heading, Button } from '@chakra-ui/react'
+import {Box, Stack, Image, Heading, Button, IconButton } from '@chakra-ui/react'
 import RatingContainer from './RatingContainer'
+import {AddIcon} from '@chakra-ui/icons'
 
 const moviesContainer = ({title, img, rating, reviewCount}) => {
   return (
     <>
                 <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200' margin={4}>
-                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} />
+                    
+                    <Box position={'absolute'}>
+
+                    </Box>
+
+
+                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} >
+
+                    </Image>
 
                     <Box h='25%'>
                         <Heading as='h3' size='lg'>
@@ -25,7 +34,12 @@ const moviesContainer = ({title, img, rating, reviewCount}) => {
 
                             </Box>
                             <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' fontSize={'xs'}>
-                                <Button position={'static'} colorScheme='blue'>Votar</Button>
+                                <IconButton
+                                    position={'static'}
+                                    colorScheme='blue'
+                                    aria-label='Search database'
+                                    icon={<AddIcon />}
+                                    />
                             </Box>
                             <Box display={'flex'} alignItems='center' fontSize='xs' w='20%' h='40px' bg='pink.400'>
                                 <Button position={'static'} colorScheme='blue'>Info</Button>

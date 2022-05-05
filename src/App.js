@@ -10,15 +10,18 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import TestRedux from "./components/TestRedux";
+
 
 function App() {
   return (
     <>
     <Router>
+      
       <Navbar/>
       <Banner/>
       <BannerTop/>
-
+      <TestRedux/>
       <Routes>
           <Route path="/" index element={<AllMovies/>}>
             
