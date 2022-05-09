@@ -9,17 +9,29 @@ const TestRedux = () => {
     
   return (
     <>
-        <Box bg='gray.800' w='100%' h='500px'p={4} color='white'>
-           
-           {movieList.map(e=>
+    {/* EJEMEPLO DE ELIMINAR MOVIES DEL ARRAY */}
+        <Box  overflowY={'auto'} bg='gray.800' w='100%' h='500px'p={4} color='white'>
+
+          {
+            movieList.map(e=>
+              <div>
+                <h2>{e.title}</h2>
+                <p>{e.rating}</p>
+                <p>{e.id}</p>
+                <Button position={'static'} onClick={()=> {dispatch(deleMovie({ id: e.id}))}} bg={'blue.500'}>delete</Button>
+              </div>
+              )
+          }
+
+           {/* {movieList.map(e=>
                <ul>         
                     <li>{e.title}</li>     
                     <li>{e.rating}</li>
-                    <Button onClick={()=> {dispatch(deleMovie({ id: e.id}))}} bg={'blue.500'}>delete</Button>       
+                    <Button position={'static'} onClick={()=> {dispatch(deleMovie({ id: e.id}))}} bg={'blue.500'}>delete</Button>       
                 </ul>
 
 
-           )}
+           )} */}
         </Box>
     </>
   )

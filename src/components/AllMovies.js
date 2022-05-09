@@ -90,7 +90,7 @@ console.log(movies)
         <Box display={'flex'} flexFlow={'wrap'} justifyContent={'center'} overflowY={'auto'} bg='red.300' w='100%' h={'1000px'} p={10} color='white'>
             {/* <Stack direction={ {base: 'column', md: 'row' }} overflowX='auto' spacing='24px'> */}
                 
-                {movies.map(e=> <MoviesContainer key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}  />)}
+                {movies.map(e=> <MoviesContainer key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount} id={e.id}  />)}
                 
             {/* </Stack> */}
         </Box>

@@ -2,8 +2,13 @@ import React from 'react'
 import {Box, Stack, Image, Heading, Button, IconButton } from '@chakra-ui/react'
 import RatingContainer from './RatingContainer'
 import {AddIcon} from '@chakra-ui/icons'
+import { addMovie } from '../reducers'
+import { useDispatch } from 'react-redux'
 
-const moviesContainer = ({title, img, rating, reviewCount}) => {
+const MoviesContainer = ({title, img, rating, reviewCount, id}) => {
+
+const dispatch = useDispatch()
+
   return (
     <>
                 <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200' margin={4}>
@@ -35,6 +40,7 @@ const moviesContainer = ({title, img, rating, reviewCount}) => {
                             </Box>
                             <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' fontSize={'xs'}>
                                 <IconButton
+                                    onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating}))}
                                     position={'static'}
                                     colorScheme='blue'
                                     aria-label='Search database'
@@ -52,4 +58,4 @@ const moviesContainer = ({title, img, rating, reviewCount}) => {
   )
 }
 
-export default moviesContainer
+export default MoviesContainer

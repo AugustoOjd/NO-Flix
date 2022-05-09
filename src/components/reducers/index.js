@@ -86,14 +86,18 @@ const movies = [
 
 export const movieSlice = createSlice({
     name: 'favorites',
-    initialState: {value: movies},
+    initialState: {value: []},
+    // initialState: {value: movies},
     reducers: {
         deleMovie: (state, action) =>{
             state.value = state.value.filter((movie)=> movie.id !== action.payload.id)
+        },
+        addMovie: (state, action)=>{
+            state.value.push(action.payload)
         }
     }
 })
 
 
-export const {deleMovie} = movieSlice.actions
+export const {deleMovie, addMovie} = movieSlice.actions
 export default movieSlice.reducer;
