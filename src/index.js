@@ -5,15 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from './theme/theme';
-import {configureStore} from '@reduxjs/toolkit'
 import {Provider} from 'react-redux'
-import favoritesReducer from './components/reducers'
+import {store} from './components/store'
 
-const store = configureStore({
-  reducer: {
-    favorites: favoritesReducer
-  }
-})
+
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 const container = document.getElementById('app');

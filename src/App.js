@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import TestRedux from "./components/TestRedux";
+import Favorites from "./components/Favorites";
 
 
 function App() {
@@ -21,14 +22,14 @@ function App() {
       <Navbar/>
       <Banner/>
       <BannerTop/>
-      <TestRedux/>
+      {/* <TestRedux/> */}
       <Routes>
           <Route path="/" index element={<AllMovies/>}>
             
           </Route>
-          <Route path="/:categoria" element={ <FiltroMovies/>}>
+          <Route path="/:categoria" element={ <FiltroMovies/>}/>
           
-          </Route>
+          <Route path="/favoritas" element={ <Favorites/>}/>
       </Routes>
 
       {/* SE tiene que agregar secciones:: home -- categorias/:categoria (accion, terror, animada) -- pelicula/info/:id  */}

@@ -5,7 +5,7 @@ import {Box} from '@chakra-ui/react'
 const MapStyleFiltro = ({categorias}) => {
   return (
     <>
-        <Box>
+        <Box display={'flex'}>
             {categorias.map(e => <StylesFiltro title={e.title} img={e.img} rating={e.rating} reviewCount={e.reviewCount} age={e.age} />)}
         </Box>
     </>

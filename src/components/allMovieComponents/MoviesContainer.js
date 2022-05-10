@@ -9,6 +9,7 @@ const MoviesContainer = ({title, img, rating, reviewCount, id}) => {
 
 const dispatch = useDispatch()
 
+
   return (
     <>
                 <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200' margin={4}>
@@ -40,7 +41,7 @@ const dispatch = useDispatch()
                             </Box>
                             <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' fontSize={'xs'}>
                                 <IconButton
-                                    onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating}))}
+                                    onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating, img: img}))}
                                     position={'static'}
                                     colorScheme='blue'
                                     aria-label='Search database'

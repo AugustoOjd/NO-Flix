@@ -93,9 +93,11 @@ export const movieSlice = createSlice({
             state.value = state.value.filter((movie)=> movie.id !== action.payload.id)
         },
         addMovie: (state, action)=>{
+            
+            if(!state.value.some((e)=> e.id == action.payload.id ))
             state.value.push(action.payload)
         }
-    }
+    },
 })
 
 

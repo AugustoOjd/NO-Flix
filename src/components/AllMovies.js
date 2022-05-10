@@ -1,5 +1,6 @@
-import React from 'react'
-import {Box} from '@chakra-ui/react'
+import React, { useState, useEffect }  from 'react'
+import {Box, Button, Stack, Center} from '@chakra-ui/react'
+import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
 import MoviesContainer from './allMovieComponents/MoviesContainer'
 
 const AllMovies = () => {
@@ -82,17 +83,58 @@ const AllMovies = () => {
 
   ]
 
-console.log(movies)
+  console.log(movies)
 
+  const [Age, setAge] = useState(true)
+  const [Rating, setRating] = useState(true)
+  const [Votes, setVotes] = useState(true)
+
+  const [Array, setArray] = useState(movies)
+
+  const filterRating = ()=>{
+        if(Rating == true){
+        setRating(!Rating)
+        return setArray(Array.sort( (a,b) => b.rating - a.rating ))
+        }else{
+            setRating(!Rating)
+            return setArray(Array.sort( (a,b) => a.rating - b.rating ))
+        }
+        
+    
+  }
+
+  const filterVotes = ()=>{
+    if(Votes == true){
+        setVotes(!Votes)
+        return setArray(Array.sort( (a,b) => b.reviewCount - a.reviewCount ))
+        }else{
+            setVotes(!Votes)
+            return setArray(Array.sort( (a,b) => a.reviewCount - b.reviewCount ))
+        }
+  }
 
   return (
     <>
-        <Box display={'flex'} flexFlow={'wrap'} justifyContent={'center'} overflowY={'auto'} bg='red.300' w='100%' h={'1000px'} p={10} color='white'>
-            {/* <Stack direction={ {base: 'column', md: 'row' }} overflowX='auto' spacing='24px'> */}
-                
-                {movies.map(e=> <MoviesContainer key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount} id={e.id}  />)}
-                
-            {/* </Stack> */}
+        <Box bg='red.300' w='100%' h={'1000px'} p={10} color='white'>
+
+            <Center>
+                <Stack direction='row' spacing={4}>
+                    <Button onClick={()=> setAge(!Age)} position={'static'} leftIcon={Age ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                        Año
+                    </Button>
+                    <Button onClick={filterRating} position={'static'} leftIcon={Rating ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                        Rating
+                    </Button>
+                    <Button  onClick={filterVotes} position={'static'} leftIcon={Votes ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                        Votos
+                    </Button>
+                </Stack>
+            </Center>
+
+            <Box display={'flex'} flexFlow={'wrap'} justifyContent={'center'} overflowY={'auto'} >
+                {Array.map(e=> <MoviesContainer key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount} id={e.id}  />)}
+            </Box>
+
         </Box>
     </>
   )

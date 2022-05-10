@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Box} from '@chakra-ui/react'
+import {Box, Heading} from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
 import MapStyleFiltro from './FiltroMoviesComponents/MapStyleFiltro'
 
@@ -96,6 +96,7 @@ return (
     
     <>
         <Box bg='blue.300' w='100%' h='500px'p={4} color='white'>
+            <Heading>{categoria}</Heading>
             {<MapStyleFiltro categorias={Movies}/>}
         </Box>
 
