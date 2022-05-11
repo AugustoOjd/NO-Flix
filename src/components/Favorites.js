@@ -2,11 +2,13 @@ import React from 'react'
 import { Box, Button, HStack, Image, Heading, Stack } from '@chakra-ui/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { deleMovie } from './reducers'
+import {Link} from 'react-router-dom'
 
 const Favorites = () => {
 
     const dispatch = useDispatch()
     const movieList = useSelector((state)=> state.favorites.value)
+    // const infId = useSelector((state)=> state.favorites.value.find(e=> e.id == id))
   return (
     <> 
 
@@ -14,6 +16,14 @@ const Favorites = () => {
             <Heading textAlign={'center'}> Favoritas</Heading>
         <Box display={'flex'} bg='gray.800' w='100%' h='500px'p={4} color='white' overflowX={'auto'}>
         {
+            movieList.length == 0 
+
+            ?
+
+            <Heading textAlign={'center'}> Agrega tus peliculas favoritas</Heading>
+
+            :
+
             movieList.map(e=>
                 <Box display={'flex'} px='5px'>
             
@@ -30,7 +40,9 @@ const Favorites = () => {
                     <Box>                
                         <HStack direction={'row'} spacing='5px' p={2} w='100%'>
                             <Box >
-                                <Button  position={'static'} colorScheme='blue'>Informacion</Button>
+                                <Link to={`/info/${e.id}`}>
+                                    <Button  position={'static'} colorScheme='blue'>Informacion</Button>
+                                </Link>
                             </Box>
                             <Box >
                                 <Button position={'static'} onClick={()=> {dispatch(deleMovie({ id: e.id}))}} bg={'blue.500'}>delete</Button>

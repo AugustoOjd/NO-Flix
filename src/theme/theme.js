@@ -1,13 +1,26 @@
 import { extendTheme } from '@chakra-ui/react'
 
-
-
-const colors = {
+export const theme = extendTheme({
+  colors: {
     brand: {
-      900: '#1a365d',
-      800: '#153e75',
-      700: '#2a69ac',
+      primary: 'white',
+      blue1: 'blue.500',
+      blue2: 'blue.600',
+      gray1: 'gray.700',
+      gray2:  'gray.900'
     },
-  }
+  },
+})
+// export theme = extendTheme{{colors}}
+
+// const colors = {
+    // brand: {
+    //   primary: 'white',
+    //   blue1: 'blue.500',
+    //   blue2: 'blue.600',
+    //   gray1: 'gray.700',
+    //   gray2:  'gray.900'
+    // },
+  // }
   
-export default extendTheme({ colors })
+// export default extendTheme({ colors })

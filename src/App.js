@@ -14,6 +14,7 @@ import TestRedux from "./components/TestRedux";
 import Favorites from "./components/Favorites";
 
 
+
 function App() {
   return (
     <>
@@ -23,6 +24,7 @@ function App() {
       <Banner/>
       <BannerTop/>
       {/* <TestRedux/> */}
+      {/* <MovieInfoContainer/> */}
       <Routes>
           <Route path="/" index element={<AllMovies/>}>
             
@@ -30,6 +32,8 @@ function App() {
           <Route path="/:categoria" element={ <FiltroMovies/>}/>
           
           <Route path="/favoritas" element={ <Favorites/>}/>
+
+          <Route path="/info/:id" element={ <MovieInfoContainer/>} />
       </Routes>
 
       {/* SE tiene que agregar secciones:: home -- categorias/:categoria (accion, terror, animada) -- pelicula/info/:id  */}

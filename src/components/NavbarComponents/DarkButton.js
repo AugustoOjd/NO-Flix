@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
 import {Stack, Switch, Circle, Flex} from '@chakra-ui/react'
 import {MoonIcon, SunIcon} from '@chakra-ui/icons'
+import { useDispatch } from 'react-redux'
+import { change } from '../reducers/ThemeRedux'
 
 
 
 const DarkButton = () => {
 
   const [Dark, setDark] = useState(true)
+  const dispatch = useDispatch()
+
+  
 
   
   return (
@@ -16,7 +21,7 @@ const DarkButton = () => {
         {Dark ? <MoonIcon/> : <SunIcon/>}
         </Circle>
         <Stack direction='row'>
-            <Switch onChange={()=> setDark(!Dark)} colorScheme='teal' size='lg' />
+            <Switch onChange={()=> dispatch(change(setDark(!Dark))) } colorScheme='teal' size='lg' />
         </Stack>
       </Flex>
 

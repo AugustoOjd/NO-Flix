@@ -8,6 +8,7 @@ const ratingContainer = ({rating}) => {
                                 .fill('')
                                 .map((_, i) => (
                                 <StarIcon
+                                    fontSize={'13px'}
                                     key={i} 
                                     color={i < rating ? 'teal.500' : 'gray.300'}
                                 />

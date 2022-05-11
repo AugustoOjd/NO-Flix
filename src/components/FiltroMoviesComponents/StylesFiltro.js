@@ -1,13 +1,16 @@
 import React from 'react'
 import {Box, Heading, IconButton, Stack, Image, Button} from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
-import {AddIcon} from '@chakra-ui/icons'
+import {AddIcon, CheckIcon} from '@chakra-ui/icons'
 import { addMovie } from '../reducers'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
 
-  const dispatch = useDispatch()
+
+    const validate = useSelector((state)=> state.favorites.value.find(e=> e.id == id))
+    const dispatch = useDispatch()
 
   return (
     <>
@@ -19,9 +22,8 @@ const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
                     </Box> */}
 
 
-                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} >
+                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} />
 
-                    </Image>
 
                     <Box h='25%'>
                         <Heading as='h3' size='lg'>
@@ -41,15 +43,17 @@ const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
                             </Box>
                             <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' fontSize={'xs'}>
                                 <IconButton
-                                    onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating}))}
+                                    onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating, img: img}))}
                                     position={'static'}
-                                    colorScheme='blue'
+                                    colorScheme={validate ? 'green' : 'blue'}
                                     aria-label='Search database'
-                                    icon={<AddIcon />}
+                                    icon={ validate ? <CheckIcon/> : <AddIcon />}
                                     />
                             </Box>
                             <Box display={'flex'} alignItems='center' fontSize='xs' w='20%' h='40px' bg='pink.400'>
+                            <Link to={`/info/${id}`}>
                                 <Button position={'static'} colorScheme='blue'>Info</Button>
+                            </Link>
                             </Box>
                         </Stack>
                     </Box>

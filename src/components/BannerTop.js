@@ -1,6 +1,6 @@
 import React from 'react'
 import TopContainer from './topComponents/TopContainer'
-import { Box } from '@chakra-ui/react'
+import { Box, Center, Heading } from '@chakra-ui/react'
 
 
 
@@ -77,20 +77,28 @@ const movies = [
 
 const BannerTop = () => {
 
-    movies.sort( (a,b) => b.rating - a.rating )
+    const orden = movies.sort( (a,b) => b.rating - a.rating )
+    const limit = orden.slice(0, 10)
     
 
     // console.log('esto es ordern', orden)
 
 
   return (
-    <>
-        <Box display={'flex'} bg='green.300' w='100%' h={'320px'} p={4} color='white' overflowX={'auto'}>
-            
-            {movies.map(e=> <TopContainer key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
-        
-        </Box>
+    <>  
+        <Box bg={'gray.200'}>
 
+            <Center >
+                <Heading p={2}>Top 10</Heading>
+            </Center>
+            <Box display={'flex'} w='100%' h={'320px'} p={4} color='white' overflowX={'auto'}>
+
+
+                
+                {limit.map(e=> <TopContainer id={e.id} key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
+            
+            </Box>
+        </Box>
     </>
   )
 }

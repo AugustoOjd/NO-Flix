@@ -6,7 +6,7 @@ const MapStyleFiltro = ({categorias}) => {
   return (
     <>
         <Box display={'flex'}>
-            {categorias.map(e => <StylesFiltro title={e.title} img={e.img} rating={e.rating} reviewCount={e.reviewCount} age={e.age} />)}
+            {categorias.map(e => <StylesFiltro key={e.id} id={e.id} title={e.title} img={e.img} rating={e.rating} reviewCount={e.reviewCount} age={e.age} />)}
         </Box>
     </>
   )

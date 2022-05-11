@@ -101,5 +101,7 @@ export const movieSlice = createSlice({
 })
 
 
+
+
 export const {deleMovie, addMovie} = movieSlice.actions
 export default movieSlice.reducer;

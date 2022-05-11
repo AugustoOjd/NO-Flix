@@ -1,8 +1,9 @@
 import React from 'react'
 import { HStack, Box, Image, Heading, Stack, Button, Circle } from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
+import {Link} from 'react-router-dom'
 
-const TopContainer = ({title, img, rating, reviewCount}) => {
+const TopContainer = ({title, img, rating, reviewCount, id}) => {
   return (
     <>
         <Box display={'flex'} px='5px'>
@@ -13,7 +14,7 @@ const TopContainer = ({title, img, rating, reviewCount}) => {
                 </Box>
             
             <HStack spacing='24px'>
-                <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200'>
+                <Box borderRadius='lg' w='250px' h='280px' bg='yellow.200'>
                     <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} />
 
                     <Box h='25%'>
@@ -30,11 +31,13 @@ const TopContainer = ({title, img, rating, reviewCount}) => {
 
                             <RatingContainer rating={rating}/>
                             </Box>
-                            <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' fontSize={'xs'}>
-                                <Button position={'static'} colorScheme='blue'>Votar</Button>
+                            <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' >
+                                <Button fontSize={'xs'} position={'static'} colorScheme='blue'>Votar</Button>
                             </Box>
-                            <Box display={'flex'} alignItems='center' fontSize='xs' w='20%' h='40px' bg='pink.400'>
-                                <Button position={'static'} colorScheme='blue'>Info</Button>
+                            <Box display={'flex'} alignItems='center'  h='40px' bg='pink.400'>
+                                <Link  w='20%' to={`/info/${id}`}>
+                                    <Button fontSize='xs' position={'static'} colorScheme='blue'>Info</Button>
+                                </Link>
                             </Box>
                         </Stack>
                     </Box>
