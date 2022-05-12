@@ -51,6 +51,8 @@ const Favorites = () => {
                     </Box>
 
                 </Box>
+
+                
             </HStack>
 
 

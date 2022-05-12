@@ -5,21 +5,21 @@ import {ArrowForwardIcon} from '@chakra-ui/icons'
 const BannerContainer = () => {
   return (
     <>
-        <Box bg={'gray.100'} w='450px' h='350px' margin={'50px'} >
+        <Box borderRadius='lg' bg={'gray.100'} w={{base: '200px', md: '450px'}} h={{base: '200px', md: '380px'}} ml={'50px'} mb={'50px'} >
           
-          <Stack direction={'column'} spacing='2px'>
-            <Box w='100%' h='100px' bg='yellow.200'>
+          <Stack direction={'column'} spacing='1px' w={'100%'} h={'100%'}>
+            <Box borderTopRadius={'lg'} w='100%' h='20%' bg='yellow.200'>
               <Heading>
                 Titulo del fondo
               </Heading>
             </Box>
-            <Box w='100%' h='210px' bg='tomato'>
+            <Box p={3} w='100%' h='70%' bg='tomato'>
               <Text>
                 Descripcion de la misma
               </Text>
             </Box>
-            <Box display={'flex'} justifyContent='end' w='100%' h='40px' bg='pink.100'>
-              <Button position={'static'} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='outline'>
+            <Box borderBottomRadius={'lg'} display={'flex'} justifyContent='end' w='100%' h='10%' >
+              <Button size={{base: 'xs', md: 'md'}} fontSize={{base: 'xs', md: 'md'}} position={'static'} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='outline'>
                 Informacion
               </Button>
             </Box>

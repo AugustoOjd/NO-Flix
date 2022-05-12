@@ -1,49 +1,91 @@
 import React from 'react'
-import { HStack, Button } from '@chakra-ui/react'
+import { HStack, Button, IconButton } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import {BsHouseDoorFill, BsJournalPlus} from 'react-icons/bs'
+import {GiBolterGun, GiTerror} from 'react-icons/gi'
+import{ SiHappycow} from 'react-icons/si'
 
 
 
 const Links = () => {
+
     const dark = useSelector((state)=> state.theme.value)
+
+
     
   return (
     <>
-        <HStack spacing='25px'>
+        <HStack  spacing={{base: '6px', sm: '20px', md: '25px'}}>
 
-        <Button colorScheme='white' variant='link' size={'lg'}>
+{/* INICIO */}
+        <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}>
             <NavLink to={'/'}>
                 Inicio
             </NavLink>
         </Button>
+        
 
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}} colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+            <NavLink to={'/'}>
+                <BsHouseDoorFill/>
+            </NavLink>
+        </Button>
 
-        <Button colorScheme='white' variant='link' size={'lg'}>
+{/* ACCION */}
+        <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}>
             <NavLink to={'/accion'}>
                 Accion
             </NavLink>
 
         </Button>
 
-        <Button colorScheme='white' variant='link' size={'lg'}> 
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}}colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+            <NavLink to={'/accion'}>
+                <GiBolterGun/>
+            </NavLink>
+        </Button>
+
+{/* TERROR */}
+
+        <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}> 
             <NavLink to={'/terror'}> 
                 Terror 
             </NavLink>
+        </Button>
+
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}}colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+            <NavLink to={'/terror'}>
+                <GiTerror/>
+            </NavLink>
         </Button>         
 
-
-        <Button colorScheme='white' variant='link' size={'lg'}>
+{/* ANIMADAS */}
+        <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}>
             <NavLink to={'/animadas'}>
                 Animadas
             </NavLink>  
         </Button>
 
-        <Button colorScheme='white' variant='link' size={'lg'}>
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}}colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+            <NavLink to={'/animadas'}>
+                <SiHappycow/>
+            </NavLink>
+        </Button> 
+
+{/* favorites */}
+
+        <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}>
             <NavLink to={'/favoritas'}>
                 Favoritas +
             </NavLink>
         </Button>
+
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}}colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+            <NavLink to={'/favoritas'}>
+                <BsJournalPlus/>
+            </NavLink>
+        </Button> 
 
         </HStack>
     </>

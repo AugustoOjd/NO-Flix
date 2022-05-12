@@ -28,7 +28,7 @@ const Banner = () => {
         {/* <Box h='90px'>
 
         </Box> */}
-        <Box display={'flex'} justifyContent='start' alignItems={'end'} bgImage={Fondo} bgSize='cover' bgPosition="center" bgRepeat="no-repeat"   h='900px' color='white'>
+        <Box display={'flex'} justifyContent='start' alignItems={'end'} bg bgImage={Fondo} bgSize='cover' bgPosition="center" bgRepeat="no-repeat" w='100%' h={{base: '500px', md: '900px'}} color='white'>
           
           <BannerContainer/> 
 

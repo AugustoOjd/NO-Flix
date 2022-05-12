@@ -140,7 +140,7 @@ return (
 
     
     <>
-        <Box bg='blue.300' w='100%' h='500px'p={4} color='white'>
+        <Box bg='blue.300' w='100%' h='500px'p={4} color='white' overflowX={'auto'}>
             <Heading>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</Heading>
             <Center>
                 <Stack direction='row' spacing={4}>
