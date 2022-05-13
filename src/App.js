@@ -26,9 +26,9 @@ function App() {
       {/* <TestRedux/> */}
       {/* <MovieInfoContainer/> */}
       <Routes>
-          <Route path="/" index element={<AllMovies/>}>
+          <Route path="/" index element={<AllMovies/>} />
             
-          </Route>
+
           <Route path="/:categoria" element={ <FiltroMovies/>}/>
           
           <Route path="/favoritas" element={ <Favorites/>}/>
@@ -44,6 +44,7 @@ function App() {
       {/* <MovieInfoContainer/> */}
 
       <Footer/>
+      
 
     </Router>
     </>

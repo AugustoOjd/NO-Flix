@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <>
-        <Box position={'sticky'} top='0'  bg={dark ? 'white' : 'gray.900'} w='100%' h={'90px'} p={4} color='white'>
+        <Box position={'sticky'} overflow='none' top='0'  bg={dark ? 'white' : 'gray.900'} w='100%' h={'90px'} p={4} color='white'>
             
             <Flex alignItems='center'>
                 <Box>

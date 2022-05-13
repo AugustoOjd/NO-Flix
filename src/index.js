@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react'
-import {theme} from './theme/theme';
+import theme from './theme/theme';
 import {Provider} from 'react-redux'
 import {store} from './components/store'
 
