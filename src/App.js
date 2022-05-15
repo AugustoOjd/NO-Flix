@@ -10,7 +10,6 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import TestRedux from "./components/TestRedux";
 import Favorites from "./components/Favorites";
 
 

@@ -30,7 +30,7 @@ const TopContainer = ({title, img, rating, reviewCount, id}) => {
                     <Box display={'flex'}  w={'100%'} h={'20%'}>
                         
                         <Box display={'flex'} justifyContent='space-between' alignItems={'center'} direction={'row'}  p={2} w='100%'>
-                            <Box letterSpacing={1} color={theme ? 'black' : 'white'} display={'flex'} alignItems='center'  w='40%' h='40px' fontSize={{base: 'sm', sm: 'md'}}>
+                            <Box letterSpacing={1} color={theme ? 'blue.600' : 'white'} display={'flex'} alignItems='center'  w='40%' h='40px' fontSize={{base: 'sm', sm: 'md'}}>
                                 {reviewCount}
                             
                             <RatingContainer rating={rating}/>

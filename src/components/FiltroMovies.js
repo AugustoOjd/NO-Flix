@@ -3,6 +3,7 @@ import {Box, Heading, Center, Button, Stack} from '@chakra-ui/react'
 import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
 import { useParams } from 'react-router-dom'
 import MapStyleFiltro from './FiltroMoviesComponents/MapStyleFiltro'
+import { useSelector } from 'react-redux'
 
 const FiltroMovies = () => {
 
@@ -18,10 +19,11 @@ const FiltroMovies = () => {
             age: 2021,
             banner: 'https://www.xtrafondos.com/wallpapers/arcane-league-of-legends-9216.jpg',
             platform: 'Netflix',
-            type: 'Serie'
-    
+            type: 'Serie',
+            trailer: ''
+      
         },
-    
+      
         {
             id: 2,
             title: 'LightYear',
@@ -87,7 +89,7 @@ const FiltroMovies = () => {
             banner: 'https://images.hdqwalls.com/wallpapers/it-chapter-two-2019-poster-bi.jpg',
             platform: 'HBO',
             type: 'Pelicula'
-    
+      
         },    
         {
             id: 7,
@@ -101,7 +103,7 @@ const FiltroMovies = () => {
             banner: 'https://larepublica.pe/resizer/64sbC9uqKmU6WhCmAVkNESYITzw=/1200x660/top/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/FDKAXQQ7BZAU7J7ZSWPLELWMIM.jpg',
             platform: 'Netflix',
             type: 'Pelicula'
-    
+      
         },
         {
             id: 8,
@@ -127,7 +129,8 @@ const FiltroMovies = () => {
             age: 2014,
             banner: 'https://fondosmil.com/fondo/64726.jpg',
             platform: 'Netflix, Amazon',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=C0BMx-qxsP4&t=16s&ab_channel=MovieclipsTrailers'
         },
         {
             id: 10,
@@ -141,7 +144,7 @@ const FiltroMovies = () => {
             banner: 'https://wallpapercave.com/wp/wp3978142.jpg',
             platform: 'HBO',
             type: 'Serie'
-    
+      
         },
         {
             id: 11,
@@ -164,6 +167,7 @@ const FiltroMovies = () => {
             rating: 3,
             reviewCount: 23,
             category: 'animadas',
+            age: 2015,
             banner: 'https://www.teahub.io/photos/full/10-105439_dragon-ball-super-wallpaper-hd-tema-para-windows.png',
             platform: 'Netflix, Crunchyroll',
             type: 'Serie'
@@ -176,6 +180,7 @@ const FiltroMovies = () => {
             rating: 2,
             reviewCount: 34,
             category: 'terror',
+            age: 2010,
             banner: 'https://i0.wp.com/www.alertaqronoticias.com/wp-content/uploads/2020/09/WalkingDead.jpg?fit=1200%2C630&ssl=1',
             platform: 'Neflix',
             type: 'Serie'
@@ -188,6 +193,7 @@ const FiltroMovies = () => {
             rating: 3,
             reviewCount: 23,
             category: 'accion',
+            age: 2016,
             banner: 'https://1.bp.blogspot.com/-rYq53C9MY78/XVFCydQTGcI/AAAAAAAAKnU/h3VOUnoO_nEgAENohHPRwtvAqAytYBZGQCLcBGAs/s1600/portada-stranger-things.jpg',
             platform: 'Netflix',
             type: 'Serie'
@@ -195,25 +201,31 @@ const FiltroMovies = () => {
         {
             id: 15,
             title: 'Alien',
-            description: '',
+            description: 'Tras acudir a una llamada de ayuda, la tripulación (Tom Skerritt, Sigourney Weaver, John Hurt) encuentra una voraz y horrible criatura abordo de una nave espacial.',
             img: 'https://images-na.ssl-images-amazon.com/images/I/71S7+AVaVXL.jpg',
             rating: 3,
             reviewCount: 13,
             category: 'terror',
-            banner: 'https://images.ecestaticos.com/YIuxgKfHfLRlUtOCuUie_i5b7C8=/0x0:1022x765/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fb7f%2F5ec%2F3f5%2Fb7f5ec3f51564bd3af46a5609457d6b9.jpg',
+            age: 1979,
+            banner: 'https://fondosmil.com/fondo/14129.jpg',
             platform: 'Amazon',
             type: 'Pelicula'
-    
+      
         }
-    
-    
+      
+      
       ]
+
+    const theme = useSelector((state)=> state.theme.value)
 
     const {categoria} = useParams()
     const [Movies, setMovies] = useState(movies)
     const [Age, setAge] = useState(true)
     const [Rating, setRating] = useState(true)
     const [Votes, setVotes] = useState(true)
+    const [BtnVotes, setBtnVotes] = useState('blue')
+    const [BtnAge, setBtnAge] = useState('blue')
+    const [BtnRating, setBtnRating] = useState('blue')
     
     useEffect(() => {
         setMovies(movies.filter(e=> e.category === categoria))
@@ -222,9 +234,17 @@ const FiltroMovies = () => {
     const filterRating = ()=>{
         if(Rating === true){
         setRating(!Rating)
+
+        setBtnRating('green')
+        setBtnVotes('blue')
+        setBtnAge('blue')
         return setMovies(Movies.sort( (a,b) => b.rating - a.rating ))
         }else{
             setRating(!Rating)
+
+            setBtnRating('red')
+            setBtnVotes('blue')
+            setBtnAge('blue')
             return setMovies(Movies.sort( (a,b) => a.rating - b.rating ))
         }
         
@@ -234,9 +254,17 @@ const FiltroMovies = () => {
   const filterVotes = ()=>{
     if(Votes === true){
         setVotes(!Votes)
+
+        setBtnVotes('green')
+        setBtnAge('blue')
+        setBtnRating('blue')
         return setMovies(Movies.sort( (a,b) => b.reviewCount - a.reviewCount ))
         }else{
             setVotes(!Votes)
+
+            setBtnVotes('red')
+            setBtnAge('blue')
+            setBtnRating('blue')
             return setMovies(Movies.sort( (a,b) => a.reviewCount - b.reviewCount ))
         }
   }
@@ -244,9 +272,17 @@ const FiltroMovies = () => {
   const filterAge = ()=>{
     if(Age === true){
         setAge(!Age)
+
+        setBtnAge('green')
+        setBtnVotes('blue')
+        setBtnRating('blue')
         return setMovies(Movies.sort( (a,b) => b.age - a.age ))
         }else{
             setAge(!Age)
+
+            setBtnAge('red')
+            setBtnVotes('blue')
+            setBtnRating('blue')
             return setMovies(Movies.sort( (a,b) => a.age - b.age ))
         }
   }
@@ -255,17 +291,21 @@ return (
 
     
     <>
-        <Box bg='blue.300' w='100%' h='500px'p={4} color='white'>
-            <Heading>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</Heading>
+        <Box bg={theme ? 'white' : 'gray.900'} w='100%' h={{base:'400px', md: '500px'}} color='white'>
+            
+            <Center mb={3} bg={theme? 'blue.50' : 'gray.800'}>
+                <Heading fontFamily={'sans-serif'} fontSize={{base: '3xl', md: '5xl'}} p={2} color={theme? 'blue.600' : 'linkedin.500'}>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</Heading>
+            </Center>
+            
             <Center>
                 <Stack direction='row' spacing={4}>
-                    <Button onClick={filterAge} position={'static'} leftIcon={Age ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                    <Button onClick={filterAge} position={'static'} leftIcon={Age ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme={BtnAge} variant='solid'>
                         Año
                     </Button>
-                    <Button onClick={filterRating} position={'static'} leftIcon={Rating ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                    <Button onClick={filterRating} position={'static'} leftIcon={Rating ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme={BtnRating} variant='solid'>
                         Rating
                     </Button>
-                    <Button  onClick={filterVotes} position={'static'} leftIcon={Votes ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme='pink' variant='solid'>
+                    <Button  onClick={filterVotes} position={'static'} leftIcon={Votes ? <ChevronDownIcon /> : <ChevronUpIcon/>}  colorScheme={BtnVotes} variant='solid'>
                         Votos
                     </Button>
                 </Stack>

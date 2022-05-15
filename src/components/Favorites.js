@@ -29,7 +29,7 @@ const Favorites = () => {
             
             <HStack spacing='24px'>
                 <Box borderRadius='lg' w='230px' h='280px' bg='yellow.200'>
-                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={e.img} alt={''} />
+                    <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={e.img} alt={e.title} />
 
                     <Box h='25%'>
                         <Heading as='h3' size='lg'>

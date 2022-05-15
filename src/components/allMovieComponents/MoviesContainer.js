@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Stack, Image, Heading, Button, IconButton, Text} from '@chakra-ui/react'
+import {Box, Stack, Image, Heading, Button, IconButton, Text, Divider} from '@chakra-ui/react'
 import RatingContainer from './RatingContainer'
 import {AddIcon, CheckIcon} from '@chakra-ui/icons'
 import { addMovie } from '../reducers'
@@ -10,11 +10,12 @@ const MoviesContainer = ({title, img, rating, reviewCount, id}) => {
 
 const validate = useSelector((state)=> state.favorites.value.find(e=> e.id == id))
 const dispatch = useDispatch()
+const theme = useSelector((state)=> state.theme.value)
 
 // console.log('esto es validate', validate)
   return (
     <>
-                <Box borderRadius='lg' w='250px' h='280px' bg='yellow.200' margin={4}>
+                <Box borderRadius='lg' w='250px' h='280px' bg={theme ? 'white' : 'gray.900'} margin={4} boxShadow='base'>
                     
 
                     <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} >
@@ -22,33 +23,34 @@ const dispatch = useDispatch()
                     </Image>
 
                     <Box h='25%'>
-                        <Heading as='h3' size='lg'>
+                        <Heading color={theme ? 'blue.600' : 'white'} p={3} fontSize={{base: 'xl', md: '2xl'}}>
                             {title}
                         </Heading>
                     </Box>
-
+                    
                     <Box display={'flex'} justifyContent='space-evenly' w={'100%'}>
                         
                         <Stack direction={'row'} spacing='5px' p={2} w='100%'>
-                            <Box display={'flex'} alignItems='center'  w='60%' h='40px' bg='blue.300' >
-                                <Text mr={1} fontSize={'xs'}>{reviewCount} Votos</Text>
+                            <Box ml={1} display={'flex'} alignItems='center'  w='60%' h='40px' >
+                                <Text mr={2} fontWeight={'semibold'} fontSize={{base: 'xs', md: 'md'}} color={theme ? 'blue.600' : 'white'}>{reviewCount}</Text>
 
 
                                 <RatingContainer rating={rating}/>
 
                             </Box>
-                            <Box display={'flex'} alignItems='center' w='20%' h='40px' bg='red.400' >
+                            <Box display={'flex'} alignItems='center' w='20%' h='40px' >
                                 <IconButton fontSize={'md'}
                                     onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating, img: img}))}
                                     position={'static'}
                                     colorScheme={validate ? 'green' : 'blue'}
                                     aria-label='Search database'
+                                    variant={theme ? 'outline' : 'solid'}
                                     icon={ validate ? <CheckIcon/> : <AddIcon />}
                                     />
                             </Box>
-                            <Box display={'flex'} alignItems='center' h='40px' bg='pink.400'>
+                            <Box display={'flex'} alignItems='center' h='40px'>
                                 <Link  to={`/info/${id}`}>
-                                    <Button position={'static'} fontSize='xs' colorScheme='blue'>Info</Button>
+                                    <Button position={'static'} fontSize={{base: 'xs', md: 'md'}} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Info</Button>
                                 </Link>
                             </Box>
                         </Stack>

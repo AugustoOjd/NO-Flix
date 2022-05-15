@@ -164,6 +164,7 @@ const movies = [
       rating: 3,
       reviewCount: 23,
       category: 'animadas',
+      age: 2015,
       banner: 'https://www.teahub.io/photos/full/10-105439_dragon-ball-super-wallpaper-hd-tema-para-windows.png',
       platform: 'Netflix, Crunchyroll',
       type: 'Serie'
@@ -176,6 +177,7 @@ const movies = [
       rating: 2,
       reviewCount: 34,
       category: 'terror',
+      age: 2010,
       banner: 'https://i0.wp.com/www.alertaqronoticias.com/wp-content/uploads/2020/09/WalkingDead.jpg?fit=1200%2C630&ssl=1',
       platform: 'Neflix',
       type: 'Serie'
@@ -188,6 +190,7 @@ const movies = [
       rating: 3,
       reviewCount: 23,
       category: 'accion',
+      age: 2016,
       banner: 'https://1.bp.blogspot.com/-rYq53C9MY78/XVFCydQTGcI/AAAAAAAAKnU/h3VOUnoO_nEgAENohHPRwtvAqAytYBZGQCLcBGAs/s1600/portada-stranger-things.jpg',
       platform: 'Netflix',
       type: 'Serie'
@@ -200,6 +203,7 @@ const movies = [
       rating: 3,
       reviewCount: 13,
       category: 'terror',
+      age: 1979,
       banner: 'https://fondosmil.com/fondo/14129.jpg',
       platform: 'Amazon',
       type: 'Pelicula'
