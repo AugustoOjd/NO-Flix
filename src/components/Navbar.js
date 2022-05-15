@@ -16,8 +16,8 @@ const Navbar = () => {
             
             <Flex alignItems='center'>
                 <Box>
-                    <Heading display={{base: 'none', md: 'flex'}} size={ '2xl'} color={dark ? 'blue.600' : 'blue.500'}>NO-Flix</Heading>
-                    <Heading display={{base: 'flex', md: 'none'}} size={'3xl'} color={dark ? 'blue.600' : 'blue.500'}>N</Heading>
+                    <Heading display={{base: 'none', md: 'flex'}} size={ '2xl'} color={dark ? 'blue.600' : 'blue.400'}>NO-Flix</Heading>
+                    <Heading display={{base: 'flex', md: 'none'}} size={'3xl'} color={dark ? 'blue.600' : 'blue.400'}>N</Heading>
                 </Box>
 
                     <Spacer/>

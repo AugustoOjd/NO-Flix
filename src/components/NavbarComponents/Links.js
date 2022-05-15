@@ -81,7 +81,7 @@ const Links = () => {
             </NavLink>
         </Button>
 
-        <Button size={'sm'} display={{base: 'flex', md: 'none'}}colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
+        <Button size={'sm'} display={{base: 'flex', md: 'none'}} colorScheme={dark ? 'linkedin' : 'white'} variant='outline'>
             <NavLink to={'/favoritas'}>
                 <BsJournalPlus/>
             </NavLink>

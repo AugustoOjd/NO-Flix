@@ -1,31 +1,40 @@
 import React from 'react'
-import {Box, Heading, Stack, Text, Button} from '@chakra-ui/react'
+import {Box, Heading, Stack, Text, Button, Divider} from '@chakra-ui/react'
 import {ArrowForwardIcon} from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 
 const BannerContainer = ({title, id, description, banner}) => {
+
+  const theme = useSelector((state)=> state.theme.value)
+
   return (
     <>
-    <Box display={'flex'} justifyContent='start' alignItems={'end'} bg bgImage={banner} bgSize='cover' bgPosition="center" bgRepeat="no-repeat" w='100%' h={{base: '500px', md: '900px'}} color='white'>
-        <Box borderRadius='lg' bg={'gray.100'} w={{base: '200px', md: '450px'}} h={{base: '200px', md: '380px'}} ml={'50px'} mb={'50px'} >
+    <Box display={'flex'} justifyContent='start' alignItems={'end'} bg bgImage={banner} bgSize='cover' bgPosition="center" bgRepeat="no-repeat" w='100%' h={{base: '300px', sm:'400px', md: '900px'}} color='white' >
+
+        <Box boxShadow='md' borderRadius='lg' w={{base: '160px', sm: '200px', md: '450px'}} h={{base: '130px', sm: '180px', md: '380px'}} ml={{base: '25px', md: '50px'}} mb={'50px'} >
           
-          <Stack direction={'column'} spacing='1px' w={'100%'} h={'100%'}>
-            <Box borderTopRadius={'lg'} w='100%' h='20%' bg='yellow.200'>
-              <Heading>
+          <Stack borderRadius={'lg'} color={'blue.600'} direction={'column'} spacing='0px' w={'100%'} h={'100%'} bg={theme ? 'white' : 'gray.900'}>
+            <Box borderBottomWidth={1} display={'flex'} alignItems={'center'} borderTopRadius={'lg'} w='100%' h='25%' >
+              <Heading p={3} fontSize={{base: 'auto', md: '4xl'}}>
                 {title}
               </Heading>
             </Box>
-            <Box overflowY={'auto'} p={3} w='100%' h='70%' bg='tomato'>
-              <Text>
+            {/* <Divider /> */}
+            <Box borderBottomWidth={1} overflowY={'auto'} p={2} w='100%' h='63%' >
+              <Text color={theme ? 'black' : 'white'} fontSize={{base: 'xs', sm: 'sm', md: 'lg'}}>
                 {description}
               </Text>
             </Box>
-            <Box borderBottomRadius={'lg'} display={'flex'} justifyContent='end' w='100%' h='10%' >
-              <Link  to={`/info/${id}`}>
-              <Button size={{base: 'xs', md: 'md'}} fontSize={{base: 'xs', md: 'md'}} position={'static'} rightIcon={<ArrowForwardIcon />} colorScheme='teal' variant='outline'>
-                Informacion
-              </Button>
-              </Link>
+            <Box borderBottomRadius={'lg'} display={'flex'} justifyContent='end' w='100%' h='12%' >
+              
+                <Button px={2} onClick={()=> window.scroll(0, 650 )} size={{base: 'xs', md: 'md'}} fontSize={{base: 'xs', md: 'md'}} position={'static'} rightIcon={<ArrowForwardIcon />} colorScheme={'linkedin'} variant={theme ? 'outline' : 'solid'}>
+                  <Link  to={`/info/${id}`}>
+                    Informacion
+                  </Link>
+                </Button>
+
             </Box>
           </Stack>
 

@@ -6,7 +6,7 @@ const MapStyleInfo = ({info}) => {
   return (
     <>
         <Box>
-            {info.map(e=> <InfoMovies coment={e.coment} img={e.img} title={e.title} rating={e.rating} age={e.age} category={e.category} trailer={e.trailer}  />)}
+            {info.map(e=> <InfoMovies coment={e.coment} img={e.img} title={e.title} rating={e.rating} age={e.age} category={e.category} trailer={e.trailer} id={e.id} />)}
         </Box>
 
     </>

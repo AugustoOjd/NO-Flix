@@ -1,7 +1,26 @@
-import React from 'react'
-import {Box, Stack, Image, Heading, Text, Center, Textarea, Button, FormControl, FormLabel, Input} from '@chakra-ui/react'
+import React, {useState} from 'react'
+import {Box, Stack, Image, Heading, Text, Center, Button, FormControl, FormLabel, Input} from '@chakra-ui/react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addText } from '../reducers/TextBox'
 
-const InfoMovies = ({title, age, rating, category, img, coment}) => {
+
+const InfoMovies = ({title, age, rating, category, img, coment, id}) => {
+
+  const textBox = useSelector((state)=> state.text.value)
+  const dispatch = useDispatch()
+
+  const [Texto, setTexto] = useState('')
+  console.log(textBox)
+
+  const enviar = ()=>{
+
+    if(Texto.length < 60 && Texto.length != " "){
+    dispatch(addText({id: id, coment: Texto}))
+    setTexto('')}
+  }
+
+  const filtro = textBox.filter(e=> e.id === id)
+
   return (
     <>
     <Box bg='blue.300' h={{base: '1520px', md: '1100px'}} w={'auto'}>
@@ -26,20 +45,23 @@ const InfoMovies = ({title, age, rating, category, img, coment}) => {
               <Box p={2} bg={'white'} >
                 <FormControl position={'static'} >
                     <FormLabel color={'black'}> Ingresa un comentario: </FormLabel>
-                      <Input position={'static'}  placeholder='Deja un comentario...' type='text' />
-                      {/* <Textarea position={'static'} color={'black'} placeholder='Deja tu comentario sobre la pelicula' /> */}
-                  <Button position={'static'}  m={1} colorScheme='blue'>Enviar</Button>
+                      <Input onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} />
+                      {Texto.length >= 60 ? <Text color={'red.500'}> Solo 60 caracteres </Text> : ''}
+                  <Button onClick={ enviar } type='submit' position={'static'}  m={1} colorScheme='blue'>Enviar</Button>
                 </FormControl>
 
                 <Box mt={3} overflowY={'auto'} h={'300px'}>
+
                     
-                    <Box bg={'blue.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2}>
+                    {filtro.map(e=> 
+                      <Box bg={'blue.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'}>
                       <Text color={'black'}>Anonimo: </Text>
                       <Text color={'black'} fontSize={'md'} >
-                        {coment}esto es comentaaaaaaaaaaaaaaaaaaaaaaaa lorasdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                        {e.coment}
                       </Text>
+                      <Text>{new Date().toLocaleDateString()}</Text>
                     
-                    </Box>
+                    </Box>)}
 
                 </Box>
 
@@ -56,19 +78,22 @@ const InfoMovies = ({title, age, rating, category, img, coment}) => {
               <Box w={'100%'} h={'100%'} p={2} bg={'white'}  >
                 <FormControl p={1}  position={'static'}>
                     <FormLabel color={'black'}> Ingresa un comentario: </FormLabel>
-                      <Input position={'static'} placeholder='Deja un comentario...' type='text' />
-                  <Button position={'static'}   m={1} colorScheme='blue'>Enviar</Button>
+                    <Input onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} />
+                      {Texto.length >= 60 ? <Text color={'red.500'}> Solo 60 caracteres </Text> : ''}
+                  <Button onClick={ enviar } type='submit' position={'static'}   m={1} colorScheme='blue'>Enviar</Button>
                 </FormControl>
 
                 <Box p={1} mt={3} overflowY={'auto'} h={'300px'}>
                     
-                    <Box bg={'blue.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2}>
+                  {filtro.map(e=> 
+                      <Box bg={'blue.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'}>
                       <Text color={'black'}>Anonimo: </Text>
                       <Text color={'black'} fontSize={'md'} >
-                        {coment}esto es comentaaaaaaaaaaaaaaaaaaaaaaaa lorasddddddddddddddddddddddddddddddddddddddddddddddddddd
+                        {e.coment}
                       </Text>
+                      <Text>{new Date().toLocaleDateString()}</Text>
                     
-                    </Box>
+                    </Box>)}
 
                 </Box>
 

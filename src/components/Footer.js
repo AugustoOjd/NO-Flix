@@ -5,7 +5,7 @@ import {AiFillInstagram, AiFillFacebook, AiFillTwitterCircle, AiFillGithub} from
 const Footer = () => {
   return (
     <>
-        <Box display={'flex'} justifyContent='center' bg='gray.800' w='100%' h={'450px'} p={10} color='white'>
+        <Box display={'flex'} justifyContent='center' bg='gray.800' w='100%' h={{base: '300px', md: '450px'}} p={10} color='white'>
 
         <Stack display={'flex'} alignItems='center' direction={'column'} spacing='24px' w={'100%'}>
         <Box bg={'blue.100'} display={'flex'} justifyContent='space-evenly' alignItems={'center'} h='50px' color='white' w={'30%'}>

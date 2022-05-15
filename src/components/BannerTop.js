@@ -1,7 +1,7 @@
 import React from 'react'
 import TopContainer from './topComponents/TopContainer'
 import { Box, Center, Heading } from '@chakra-ui/react'
-
+import { useSelector } from 'react-redux'
 
 
 const movies = [
@@ -215,20 +215,17 @@ const BannerTop = () => {
     const orden = movies.sort( (a,b) => b.rating - a.rating )
     const limit = orden.slice(0, 10)
     
-
-    // console.log('esto es ordern', orden)
+    const theme = useSelector((state)=> state.theme.value)
 
 
   return (
     <>  
-        <Box bg={'gray.200'}>
+        <Box bg={theme ? 'white' : 'gray.900'}>
 
-            <Center >
-                <Heading p={2}>Top 10</Heading>
+            <Center bg={theme? 'blue.50' : 'gray.800'}>
+                <Heading fontFamily={'sans-serif'} fontSize={{base: '3xl', md: '5xl'}} p={2} color={theme? 'blue.600' : 'linkedin.500'}>Top 10 del mes</Heading>
             </Center>
-            <Box display={'flex'} w='100%' h={'320px'} p={4} color='white' overflowX={'auto'}>
-
-
+            <Box display={'flex'} w='100%' h={{base: '270px', md:'320px'}} p={4} color='white' overflowX={'auto'}>
                 
                 {limit.map(e=> <TopContainer id={e.id} key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
             
