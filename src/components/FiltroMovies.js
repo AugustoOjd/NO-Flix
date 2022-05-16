@@ -291,13 +291,13 @@ return (
 
     
     <>
-        <Box bg={theme ? 'white' : 'gray.900'} w='100%' h={{base:'400px', md: '500px'}} color='white'>
+        <Box bg={theme ? 'white' : 'gray.700'} w='100%' h={{base:'450px', md: '550px'}} color='white'>
             
-            <Center mb={3} bg={theme? 'blue.50' : 'gray.800'}>
+            <Center mb={5} bg={theme? 'blue.50' : 'gray.800'}>
                 <Heading fontFamily={'sans-serif'} fontSize={{base: '3xl', md: '5xl'}} p={2} color={theme? 'blue.600' : 'linkedin.500'}>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</Heading>
             </Center>
             
-            <Center>
+            <Center mb={5}>
                 <Stack direction='row' spacing={4}>
                     <Button onClick={filterAge} position={'static'} leftIcon={Age ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme={BtnAge} variant='solid'>
                         Año

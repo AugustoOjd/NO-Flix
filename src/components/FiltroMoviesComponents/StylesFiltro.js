@@ -15,7 +15,7 @@ const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
 
   return (
     <>
-        <Box >
+        <Box>
         <Box borderRadius='lg' w={{base: '200px', md:'230px'}} h={{base: '250px', md: '280px'}} bg={theme ? 'white' : 'gray.700'} margin={4} boxShadow='base'>
 
                     <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} />

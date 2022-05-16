@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react'
 import {Box, Button, Stack, Center} from '@chakra-ui/react'
 import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
 import MoviesContainer from './allMovieComponents/MoviesContainer'
+import { useSelector } from 'react-redux'
 
 const AllMovies = () => {
 
@@ -18,7 +19,7 @@ const AllMovies = () => {
             banner: 'https://www.xtrafondos.com/wallpapers/arcane-league-of-legends-9216.jpg',
             platform: 'Netflix',
             type: 'Serie',
-            trailer: ''
+            trailer: 'https://www.youtube.com/watch?v=4Ps6nV4wiCE&ab_channel=LeagueofLegends'
       
         },
       
@@ -33,7 +34,8 @@ const AllMovies = () => {
             age: 2022,
             banner: 'https://b-static.besthdwallpaper.com/pelicula-de-animacion-lightyear-2022-buzz-lightyear-papel-pintado-2560x1600-91658_7.jpg',
             platform: '...',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=lKLqrpYNfnA&ab_channel=FilmSelectEspa%C3%B1ol'
         },
         
         {
@@ -47,7 +49,8 @@ const AllMovies = () => {
             age: 2014,
             banner: 'https://www.xtrafondos.com/wallpapers/juego-de-guardianes-de-la-galaxia-8279.jpg',
             platform: 'Disney+',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=qdIuXCfUKM8&ab_channel=MarvelLatinoam%C3%A9ricaOficial'
         },
         {
             id: 4,
@@ -60,7 +63,8 @@ const AllMovies = () => {
             age: 2009,
             banner: 'https://images6.alphacoders.com/672/672060.jpg',
             platform: 'Netflix, Crunchyroll',
-            type: 'Serie'
+            type: 'Serie',
+            trailer: 'https://www.youtube.com/watch?v=V1l0MRT0fS8&ab_channel=MacblinkSkylight'
         },
         {
             id: 5,
@@ -73,7 +77,8 @@ const AllMovies = () => {
             age: 2002,
             banner: 'https://live.staticflickr.com/17/22114713_0e9ee675fc_b.jpg',
             platform: 'Netflix, Crunchyroll',
-            type: 'Serie'
+            type: 'Serie',
+            trailer:'https://www.youtube.com/watch?v=-G9BqkgZXRA&ab_channel=vizmedia'
         },
         {
             id: 6,
@@ -86,7 +91,8 @@ const AllMovies = () => {
             age: 2017,
             banner: 'https://images.hdqwalls.com/wallpapers/it-chapter-two-2019-poster-bi.jpg',
             platform: 'HBO',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            tailer: 'https://www.youtube.com/watch?v=_oBZ_zTz0Nw&ab_channel=WarnerBros.PicturesEspa%C3%B1a'
       
         },    
         {
@@ -100,7 +106,8 @@ const AllMovies = () => {
             age: 1980,
             banner: 'https://larepublica.pe/resizer/64sbC9uqKmU6WhCmAVkNESYITzw=/1200x660/top/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/FDKAXQQ7BZAU7J7ZSWPLELWMIM.jpg',
             platform: 'Netflix',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=Xqqej9T2gqI&ab_channel=MovieclipsClassicTrailers'
       
         },
         {
@@ -114,7 +121,8 @@ const AllMovies = () => {
             age: 2018,
             banner: 'https://www.xtrafondos.com/descargar.php?id=5131&resolucion=2560x1440',
             platform: 'Netflix, Amazon',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=0aJIudUnXik&ab_channel=TrailersInSpanish'
         },
         {
             id: 9,
@@ -128,7 +136,7 @@ const AllMovies = () => {
             banner: 'https://fondosmil.com/fondo/64726.jpg',
             platform: 'Netflix, Amazon',
             type: 'Pelicula',
-            trailer: 'https://www.youtube.com/watch?v=C0BMx-qxsP4&t=16s&ab_channel=MovieclipsTrailers'
+            trailer: 'https://www.youtube.com/watch?v=C0BMx-qxsP4&t=16s&ab_channel=MovieclipsTrailers',
         },
         {
             id: 10,
@@ -141,7 +149,8 @@ const AllMovies = () => {
             age: 2011,
             banner: 'https://wallpapercave.com/wp/wp3978142.jpg',
             platform: 'HBO',
-            type: 'Serie'
+            type: 'Serie',
+            trailer: 'https://www.youtube.com/watch?v=g1IICkElV0M&ab_channel=Action-Movies'
       
         },
         {
@@ -155,7 +164,8 @@ const AllMovies = () => {
             age: 2008,
             banner: 'https://fondosmil.com/fondo/42176.jpg',
             platform: 'Netflix',
-            type: 'Serie'
+            type: 'Serie',
+            trailer:'https://www.youtube.com/watch?v=HhesaQXLuRY&ab_channel=TrailerBlend'
         },
         {
             id: 12,
@@ -168,7 +178,8 @@ const AllMovies = () => {
             age: 2015,
             banner: 'https://www.teahub.io/photos/full/10-105439_dragon-ball-super-wallpaper-hd-tema-para-windows.png',
             platform: 'Netflix, Crunchyroll',
-            type: 'Serie'
+            type: 'Serie',
+            trailer: 'https://www.youtube.com/watch?v=t5CIs0jDqC8&ab_channel=CrunchyrollCollection'
         },
         {
             id: 13,
@@ -181,7 +192,8 @@ const AllMovies = () => {
             age: 2010,
             banner: 'https://i0.wp.com/www.alertaqronoticias.com/wp-content/uploads/2020/09/WalkingDead.jpg?fit=1200%2C630&ssl=1',
             platform: 'Neflix',
-            type: 'Serie'
+            type: 'Serie',
+            trailer: 'https://www.youtube.com/watch?v=R1v0uFms68U&ab_channel=MahaloVideoGames'
         },
         {
             id: 14,
@@ -194,7 +206,8 @@ const AllMovies = () => {
             age: 2016,
             banner: 'https://1.bp.blogspot.com/-rYq53C9MY78/XVFCydQTGcI/AAAAAAAAKnU/h3VOUnoO_nEgAENohHPRwtvAqAytYBZGQCLcBGAs/s1600/portada-stranger-things.jpg',
             platform: 'Netflix',
-            type: 'Serie'
+            type: 'Serie',
+            trailer: 'https://www.youtube.com/watch?v=x7Yq9MJUqjY&ab_channel=NetflixEspa%C3%B1a'
         },
         {
             id: 15,
@@ -207,7 +220,8 @@ const AllMovies = () => {
             age: 1979,
             banner: 'https://fondosmil.com/fondo/14129.jpg',
             platform: 'Amazon',
-            type: 'Pelicula'
+            type: 'Pelicula',
+            trailer: 'https://www.youtube.com/watch?v=Eu9ZFTXXEiw&ab_channel=TrailersyEstrenos'
       
         }
       
@@ -220,9 +234,9 @@ const AllMovies = () => {
   const [BtnVotes, setBtnVotes] = useState('blue')
   const [BtnAge, setBtnAge] = useState('blue')
   const [BtnRating, setBtnRating] = useState('blue')
-
   const [Array, setArray] = useState(movies)
-//   console.log(movies)
+
+  const theme = useSelector((state)=> state.theme.value)
 
   const filterRating = ()=>{
         if(Rating === true){
@@ -282,7 +296,7 @@ const AllMovies = () => {
 
   return (
     <>
-        <Box bg={'white'} w='100%' h={'auto'} p={10} color='white'>
+        <Box w='100%' h={'auto'} p={10} color='white' bg={theme ? 'white' : 'gray.700'}>
 
             <Center>
                 <Stack direction='row' spacing={4}>
