@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Box, Heading, IconButton, Image, Button, Text} from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
 import {AddIcon, CheckIcon} from '@chakra-ui/icons'
 import { addMovie } from '../reducers'
 import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
+import {gsap} from 'gsap'
 
 const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
 
@@ -13,10 +14,15 @@ const StylesFiltro = ({title, img, rating, reviewCount, age, id}) => {
     const dispatch = useDispatch()
     const theme = useSelector((state)=> state.theme.value)
 
+    useEffect(() => {
+        gsap.fromTo('.move', {x: -350}, {x: 0, duration: 1})
+    }, [])
+    
+
   return (
     <>
         <Box>
-        <Box borderRadius='lg' w={{base: '200px', md:'230px'}} h={{base: '250px', md: '280px'}} bg={theme ? 'white' : 'gray.700'} margin={4} boxShadow='base'>
+        <Box className='move' borderRadius='lg' w={{base: '200px', md:'230px'}} h={{base: '250px', md: '280px'}} bg={theme ? 'white' : 'gray.700'} margin={4} boxShadow='base'>
 
                     <Image h='55%' w={'100%'} borderTopRadius={'lg'} src={img} alt={''} />
 

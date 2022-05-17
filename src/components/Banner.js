@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Box } from '@chakra-ui/react'
 import MapBanner from './bannerCompanents/MapBanner'
+import {gsap} from 'gsap'
 
 
 // array mas completo 12-05-22
@@ -221,6 +222,7 @@ const Banner = () => {
 
 
   useEffect(() => {
+    
     setFondo([movies[random]])
   }, [])
   
@@ -228,7 +230,7 @@ const Banner = () => {
   return (
     <>  
     
-        <Box>
+        <Box >
             <MapBanner banners={Fondo}/>
         </Box>
 

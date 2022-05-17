@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Stack, Image, Heading, Button, IconButton, Text, Divider} from '@chakra-ui/react'
+import {Box, Stack, Image, Heading, Button, IconButton, Text} from '@chakra-ui/react'
 import RatingContainer from './RatingContainer'
 import {AddIcon, CheckIcon} from '@chakra-ui/icons'
 import { addMovie } from '../reducers'
@@ -31,15 +31,22 @@ const theme = useSelector((state)=> state.theme.value)
                     <Box display={'flex'} justifyContent='space-evenly' w={'100%'}>
                         
                         <Stack direction={'row'} spacing='5px' p={2} w='100%'>
-                            <Box ml={1} display={'flex'} alignItems='center'  w='60%' h='40px' >
-                                <Text mr={2} fontWeight={'semibold'} fontSize={{base: 'xs', md: 'md'}} color={theme ? 'blue.600' : 'white'}>{reviewCount}</Text>
+                            <Box ml={1} display={'flex'} alignItems='center'   h='40px' >
+                                <Text mr={1} fontWeight={'semibold'} fontSize={{base: 'xs', md: 'md'}} color={theme ? 'blue.600' : 'white'}>{reviewCount}</Text>
 
 
                                 <RatingContainer rating={rating}/>
 
                             </Box>
-                            <Box display={'flex'} alignItems='center' w='20%' h='40px' >
-                                <IconButton fontSize={'md'}
+                            <Box display={'flex'} alignItems='center'  >
+                                <Button size={'sm'} fontSize={'xs'} position={'static'} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>
+                                    Votar
+                                </Button>
+                            </Box>
+                            <Box display={'flex'} alignItems='center'  h='40px' >
+                                <IconButton
+                                    size={'sm'}
+                                    fontSize={'sm'}
                                     onClick={()=> dispatch(addMovie({title: title, id: id, rating: rating, img: img}))}
                                     position={'static'}
                                     colorScheme={validate ? 'green' : 'blue'}
@@ -50,7 +57,7 @@ const theme = useSelector((state)=> state.theme.value)
                             </Box>
                             <Box display={'flex'} alignItems='center' h='40px'>
                                 <Link  to={`/info/${id}`}>
-                                    <Button position={'static'} fontSize={{base: 'xs', md: 'md'}} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Info</Button>
+                                    <Button size={'sm'} position={'static'} fontSize={{base: 'xs', md: 'sm'}} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Info</Button>
                                 </Link>
                             </Box>
                         </Stack>

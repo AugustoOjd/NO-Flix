@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react'
-import {Box, Heading, Center, Button, Stack} from '@chakra-ui/react'
+import React, {useEffect, useRef, useState} from 'react'
+import {Box, Heading, Center, Button, Stack, Spinner} from '@chakra-ui/react'
+import { gsap } from 'gsap'
 import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
 import { useParams } from 'react-router-dom'
 import MapStyleFiltro from './FiltroMoviesComponents/MapStyleFiltro'
@@ -217,7 +218,6 @@ const FiltroMovies = () => {
       ]
 
     const theme = useSelector((state)=> state.theme.value)
-
     const {categoria} = useParams()
     const [Movies, setMovies] = useState(movies)
     const [Age, setAge] = useState(true)
@@ -226,9 +226,25 @@ const FiltroMovies = () => {
     const [BtnVotes, setBtnVotes] = useState('blue')
     const [BtnAge, setBtnAge] = useState('blue')
     const [BtnRating, setBtnRating] = useState('blue')
-    
+    const [Loading, setLoading] = useState(true)
+
+    const onFocus = ()=>{
+        window.scroll(0, 1200)
+    }
+    const filtrar = document.querySelectorAll(".filtro")
+
     useEffect(() => {
-        setMovies(movies.filter(e=> e.category === categoria))
+            setLoading(true)
+            onFocus()
+            gsap.from(filtrar, { opacity: 0, duration: 1})
+        setTimeout(() => {
+            setLoading(false)
+            
+            setMovies(movies.filter(e=> e.category === categoria))
+            
+        }, 1000);
+       
+
     }, [categoria])
 
     const filterRating = ()=>{
@@ -293,12 +309,12 @@ return (
     <>
         <Box bg={theme ? 'white' : 'gray.700'} w='100%' h={{base:'450px', md: '550px'}} color='white'>
             
-            <Center mb={5} bg={theme? 'blue.50' : 'gray.800'}>
+            <Center mb={5} bg={theme? 'blue.50' : 'gray.800'} className='filtro'>
                 <Heading fontFamily={'sans-serif'} fontSize={{base: '3xl', md: '5xl'}} p={2} color={theme? 'blue.600' : 'linkedin.500'}>{categoria.charAt(0).toUpperCase() + categoria.slice(1)}</Heading>
             </Center>
             
             <Center mb={5}>
-                <Stack direction='row' spacing={4}>
+                <Stack direction='row' spacing={4} className='filtro'>
                     <Button onClick={filterAge} position={'static'} leftIcon={Age ? <ChevronDownIcon /> : <ChevronUpIcon/>} colorScheme={BtnAge} variant='solid'>
                         Año
                     </Button>
@@ -310,7 +326,29 @@ return (
                     </Button>
                 </Stack>
             </Center>
-            {<MapStyleFiltro categorias={Movies}/>}
+
+            {
+                Loading 
+                
+                ?
+
+                <Center mt={10} h={'50%'}>
+                    <Spinner
+                        thickness='4px'
+                        speed='0.65s'
+                        emptyColor='gray.200'
+                        color='blue.500'
+                        size='xl'
+                        />
+                </Center>
+                
+                :
+
+                <Box>
+                    <MapStyleFiltro categorias={Movies}/>
+                </Box>
+                
+                }
         </Box>
 
     </>

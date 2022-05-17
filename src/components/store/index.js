@@ -3,6 +3,7 @@ import renderMoviesReducer from '../reducers'
 import {configureStore} from '@reduxjs/toolkit'
 import ThemeRedux from '../reducers/ThemeRedux'
 import TextBox from '../reducers/TextBox'
+import Votacion from '../reducers/Votacion'
 
 
 export const store = configureStore({
@@ -10,7 +11,8 @@ export const store = configureStore({
       favorites: favoritesReducer,
       renderMovies:  renderMoviesReducer,
       theme: ThemeRedux,
-      text: TextBox
+      text: TextBox,
+      vote: Votacion
     }
   })
   

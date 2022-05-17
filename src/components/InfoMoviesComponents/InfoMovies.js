@@ -11,7 +11,6 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
   const dispatch = useDispatch()
 
   const [Texto, setTexto] = useState('')
-  console.log(textBox)
 
   const enviar = ()=>{
 
@@ -19,6 +18,7 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
     dispatch(addText({id: id, coment: Texto}))
     setTexto('')}
   }
+  
 
   const filtro = textBox.filter(e=> e.id === id)
 
@@ -39,13 +39,13 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
 
                 <Box borderRadius={'lg'} w={'100%'}  h={'90%'} bg={ theme ? 'white' : 'gray.100'} color={theme ? 'blue.600' : 'blue.700'} fontSize={{base: 'sm'}} p={2}>
                     <Text fontWeight={'bold'} mb={1}> Descripción: </Text>
-                    <Text fontSize={{base: 'xs', sm: 'md'}}>{description}</Text>
+                    <Text fontSize={{base: 'xs', sm: 'sm'}}>{description}</Text>
                     <Text fontWeight={'bold'}  mb={1}>Lanzamiento: </Text>
                     <Text> {age}</Text>
                     <Text fontWeight={'bold'}  mb={1}> Puntaje: </Text>
                     <Text>{rating}</Text>
                     <Text fontWeight={'bold'}  mb={1}>Categoria:</Text>
-                    <Text > {category}</Text>
+                    <Text > {category.charAt(0).toUpperCase() + category.slice(1)}</Text>
                     <Text fontWeight={'bold'}  mb={1}> Tipo:</Text>
                     <Text>  {type}</Text>
                     <Text fontWeight={'bold'}   mb={1}>Plataforma :  </Text>
@@ -61,7 +61,7 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
               <Box borderRadius={'lg'} p={2} bg={theme ? 'gray.100' : 'gray.200'} >
                 <FormControl position={'static'} >
                     <FormLabel ml={1} color={'black'}> Ingresa un comentario: </FormLabel>
-                      <Input onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} bg={'white'} />
+                      <Input onKeyDown={(e)=> {if(e.code === 'Enter'){enviar()}}} onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} bg={'white'} />
                       {Texto.length >= 40 ? <Text color={'red.500'} fontSize={'sm'}> Solo 40 caracteres </Text> : ''}
                   <Button onClick={ enviar } type='submit' position={'static'}  mt={2} colorScheme='blue'>Enviar</Button>
                 </FormControl>
@@ -94,7 +94,7 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
               <Box borderRadius={'lg'} w={'100%'} h={'100%'} p={2} bg={theme ? 'blue.50' : 'gray.200'}  >
                 <FormControl p={1}  position={'static'}>
                     <FormLabel ml={1} color={'black'}> Ingresa un comentario: </FormLabel>
-                    <Input onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} bg={'white'} />
+                    <Input onKeyDown={(e)=> {if(e.code === 'Enter'){enviar()}}} onChange={(e)=> setTexto(e.target.value)} position={'static'} value={Texto} placeholder='Deja un comentario...' type='text' color={'black'} bg={'white'} />
                       {Texto.length >= 40 ? <Text color={'red.500'} fontSize={'sm'}> Solo 40 caracteres </Text> : ''}
                   <Button onClick={ enviar } type='submit' position={'static'}   mt={2} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Enviar</Button>
                 </FormControl>

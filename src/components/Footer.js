@@ -51,7 +51,7 @@ const Footer = () => {
                   <Link fontSize={{base: 'xs', md: '2xl', lg: '4xl'}}>React</Link>
                   <Link fontSize={{base: 'xs', md: '2xl', lg: '4xl'}}>Redux</Link>
                   <Link fontSize={{base: 'xs', md: '2xl', lg: '4xl'}}>Chakra UI</Link>
-                  <Link fontSize={{base: 'xs', md: '2xl', lg: '4xl'}}>Git Hub</Link>
+                  <Link fontSize={{base: 'xs', md: '2xl', lg: '4xl'}}>Gsap</Link>
                 </Box>
                 <Divider orientation='vertical' />
                 <Box color={theme ? 'blue.600' : 'white'} display={'flex'} flexFlow={'column'} w='33%' h='100%' >

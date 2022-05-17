@@ -1,8 +1,4 @@
-import React from 'react'
-import TopContainer from './topComponents/TopContainer'
-import { Box, Center, Heading } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
-
+import { createSlice } from "@reduxjs/toolkit";
 
 const movies = [
     {
@@ -17,7 +13,7 @@ const movies = [
         banner: 'https://www.xtrafondos.com/wallpapers/arcane-league-of-legends-9216.jpg',
         platform: 'Netflix',
         type: 'Serie',
-        trailer: ''
+        trailer: 'https://www.youtube.com/watch?v=4Ps6nV4wiCE&ab_channel=LeagueofLegends'
   
     },
   
@@ -32,7 +28,8 @@ const movies = [
         age: 2022,
         banner: 'https://b-static.besthdwallpaper.com/pelicula-de-animacion-lightyear-2022-buzz-lightyear-papel-pintado-2560x1600-91658_7.jpg',
         platform: '...',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        trailer: 'https://www.youtube.com/watch?v=lKLqrpYNfnA&ab_channel=FilmSelectEspa%C3%B1ol'
     },
     
     {
@@ -46,7 +43,8 @@ const movies = [
         age: 2014,
         banner: 'https://www.xtrafondos.com/wallpapers/juego-de-guardianes-de-la-galaxia-8279.jpg',
         platform: 'Disney+',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        trailer: 'https://www.youtube.com/watch?v=qdIuXCfUKM8&ab_channel=MarvelLatinoam%C3%A9ricaOficial'
     },
     {
         id: 4,
@@ -59,7 +57,8 @@ const movies = [
         age: 2009,
         banner: 'https://images6.alphacoders.com/672/672060.jpg',
         platform: 'Netflix, Crunchyroll',
-        type: 'Serie'
+        type: 'Serie',
+        trailer: 'https://www.youtube.com/watch?v=V1l0MRT0fS8&ab_channel=MacblinkSkylight'
     },
     {
         id: 5,
@@ -72,7 +71,8 @@ const movies = [
         age: 2002,
         banner: 'https://live.staticflickr.com/17/22114713_0e9ee675fc_b.jpg',
         platform: 'Netflix, Crunchyroll',
-        type: 'Serie'
+        type: 'Serie',
+        trailer:'https://www.youtube.com/watch?v=-G9BqkgZXRA&ab_channel=vizmedia'
     },
     {
         id: 6,
@@ -85,7 +85,8 @@ const movies = [
         age: 2017,
         banner: 'https://images.hdqwalls.com/wallpapers/it-chapter-two-2019-poster-bi.jpg',
         platform: 'HBO',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        tailer: 'https://www.youtube.com/watch?v=_oBZ_zTz0Nw&ab_channel=WarnerBros.PicturesEspa%C3%B1a'
   
     },    
     {
@@ -99,7 +100,8 @@ const movies = [
         age: 1980,
         banner: 'https://larepublica.pe/resizer/64sbC9uqKmU6WhCmAVkNESYITzw=/1200x660/top/arc-anglerfish-arc2-prod-gruporepublica.s3.amazonaws.com/public/FDKAXQQ7BZAU7J7ZSWPLELWMIM.jpg',
         platform: 'Netflix',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        trailer: 'https://www.youtube.com/watch?v=Xqqej9T2gqI&ab_channel=MovieclipsClassicTrailers'
   
     },
     {
@@ -107,13 +109,14 @@ const movies = [
         title: 'Un lugar en silencio',
         description: 'En un mundo invadido y arrasado por unos letales extraterrestres que se guían por el sonido, Evelyn y Lee Abbott sobreviven con sus hijos en una granja aislada en el bosque, sumidos en el más profundo silencio. Mientras no hagan ruido, estarán a salvo.',
         img: 'https://www.tematika.com/media/catalog/Ilhsa/Imagenes/654342.jpg',
-        rating: 5,
+        rating: 3,
         reviewCount: 6,
         category: 'terror',
         age: 2018,
         banner: 'https://www.xtrafondos.com/descargar.php?id=5131&resolucion=2560x1440',
         platform: 'Netflix, Amazon',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        trailer: 'https://www.youtube.com/watch?v=0aJIudUnXik&ab_channel=TrailersInSpanish'
     },
     {
         id: 9,
@@ -127,7 +130,7 @@ const movies = [
         banner: 'https://fondosmil.com/fondo/64726.jpg',
         platform: 'Netflix, Amazon',
         type: 'Pelicula',
-        trailer: 'https://www.youtube.com/watch?v=C0BMx-qxsP4&t=16s&ab_channel=MovieclipsTrailers'
+        trailer: 'https://www.youtube.com/watch?v=C0BMx-qxsP4&t=16s&ab_channel=MovieclipsTrailers',
     },
     {
         id: 10,
@@ -140,7 +143,8 @@ const movies = [
         age: 2011,
         banner: 'https://wallpapercave.com/wp/wp3978142.jpg',
         platform: 'HBO',
-        type: 'Serie'
+        type: 'Serie',
+        trailer: 'https://www.youtube.com/watch?v=g1IICkElV0M&ab_channel=Action-Movies'
   
     },
     {
@@ -154,7 +158,8 @@ const movies = [
         age: 2008,
         banner: 'https://fondosmil.com/fondo/42176.jpg',
         platform: 'Netflix',
-        type: 'Serie'
+        type: 'Serie',
+        trailer:'https://www.youtube.com/watch?v=HhesaQXLuRY&ab_channel=TrailerBlend'
     },
     {
         id: 12,
@@ -167,7 +172,8 @@ const movies = [
         age: 2015,
         banner: 'https://www.teahub.io/photos/full/10-105439_dragon-ball-super-wallpaper-hd-tema-para-windows.png',
         platform: 'Netflix, Crunchyroll',
-        type: 'Serie'
+        type: 'Serie',
+        trailer: 'https://www.youtube.com/watch?v=t5CIs0jDqC8&ab_channel=CrunchyrollCollection'
     },
     {
         id: 13,
@@ -180,7 +186,8 @@ const movies = [
         age: 2010,
         banner: 'https://i0.wp.com/www.alertaqronoticias.com/wp-content/uploads/2020/09/WalkingDead.jpg?fit=1200%2C630&ssl=1',
         platform: 'Neflix',
-        type: 'Serie'
+        type: 'Serie',
+        trailer: 'https://www.youtube.com/watch?v=R1v0uFms68U&ab_channel=MahaloVideoGames'
     },
     {
         id: 14,
@@ -193,20 +200,22 @@ const movies = [
         age: 2016,
         banner: 'https://1.bp.blogspot.com/-rYq53C9MY78/XVFCydQTGcI/AAAAAAAAKnU/h3VOUnoO_nEgAENohHPRwtvAqAytYBZGQCLcBGAs/s1600/portada-stranger-things.jpg',
         platform: 'Netflix',
-        type: 'Serie'
+        type: 'Serie',
+        trailer: 'https://www.youtube.com/watch?v=x7Yq9MJUqjY&ab_channel=NetflixEspa%C3%B1a'
     },
     {
         id: 15,
         title: 'Alien',
         description: 'Tras acudir a una llamada de ayuda, la tripulación (Tom Skerritt, Sigourney Weaver, John Hurt) encuentra una voraz y horrible criatura abordo de una nave espacial.',
         img: 'https://images-na.ssl-images-amazon.com/images/I/71S7+AVaVXL.jpg',
-        rating: 3,
+        rating: 5,
         reviewCount: 13,
         category: 'terror',
         age: 1979,
         banner: 'https://fondosmil.com/fondo/14129.jpg',
         platform: 'Amazon',
-        type: 'Pelicula'
+        type: 'Pelicula',
+        trailer: 'https://www.youtube.com/watch?v=Eu9ZFTXXEiw&ab_channel=TrailersyEstrenos'
   
     }
   
@@ -214,32 +223,15 @@ const movies = [
   ]
 
 
-const BannerTop = () => {
 
-    const theme = useSelector((state)=> state.theme.value)
-    const votes = useSelector((state)=> state.vote.value)
+export const voteSlice = createSlice({
+    name: 'vote',
+    initialState: {value : movies},
+    reducers:{
+        votar: (state, action)=>{
 
-    const orden = votes.map(e=> e)
-    const mof = orden.sort( (a,b) => b.rating - a.rating )
-    const limit = mof.slice(0, 10)
+        }
+    }
+})
 
-
-
-  return (
-    <>  
-        <Box bg={theme ? 'white' : 'gray.900'}>
-
-            <Center bg={theme? 'blue.50' : 'gray.800'}>
-                <Heading fontFamily={'sans-serif'} fontSize={{base: '3xl', md: '5xl'}} p={2} color={theme? 'blue.600' : 'linkedin.500'}>Top 10 del mes</Heading>
-            </Center>
-            <Box display={'flex'} w='100%' h={{base: '270px', md:'320px'}} p={4} color='white' overflowX={'auto'}>
-                
-                {limit.map(e=> <TopContainer id={e.id} key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
-            
-            </Box>
-        </Box>
-    </>
-  )
-}
-
-export default BannerTop
+export default voteSlice.reducer;

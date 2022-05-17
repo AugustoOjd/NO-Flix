@@ -1,5 +1,5 @@
 import React from 'react'
-import { HStack, Box, Image, Heading, Stack, Button, Circle } from '@chakra-ui/react'
+import { HStack, Box, Image, Heading, Text, Button, Circle } from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
 import {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -31,7 +31,9 @@ const TopContainer = ({title, img, rating, reviewCount, id}) => {
                         
                         <Box display={'flex'} justifyContent='space-between' alignItems={'center'} direction={'row'}  p={2} w='100%'>
                             <Box letterSpacing={1} color={theme ? 'blue.600' : 'white'} display={'flex'} alignItems='center'  w='40%' h='40px' fontSize={{base: 'sm', sm: 'md'}}>
+                                <Text mr={1}>
                                 {reviewCount}
+                                </Text>
                             
                             <RatingContainer rating={rating}/>
                             </Box>
