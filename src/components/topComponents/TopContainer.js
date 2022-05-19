@@ -1,12 +1,21 @@
-import React from 'react'
-import { HStack, Box, Image, Heading, Text, Button, Circle } from '@chakra-ui/react'
+import React, {useState} from 'react'
+import { HStack, Box, Image, Heading, Text, Button, Circle, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, RadioGroup, Radio, FormHelperText, Divider } from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
 import {Link} from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useDisclosure } from '@chakra-ui/react'
+import { votar } from '../reducers/Votacion'
 
 const TopContainer = ({title, img, rating, reviewCount, id}) => {
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const theme = useSelector((state)=> state.theme.value)
+    const dispatch = useDispatch()
+    const [Puntos, setPuntos] = useState()
+
+    // const sumarVoto = ()=>{
+
+    // }
 
   return (
     <>
@@ -39,8 +48,60 @@ const TopContainer = ({title, img, rating, reviewCount, id}) => {
                             </Box>
 
                             <Box display={'flex'} alignItems='center' w='20%' >
-                                <Button fontSize={'xs'} position={'static'} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Votar</Button>
+                                <Button onClick={onOpen} fontSize={'xs'} position={'static'} colorScheme='blue' variant={theme ? 'outline' : 'solid'}>Votar</Button>
                             </Box>
+
+                            <Modal  isOpen={isOpen} onClose={onClose}>
+                                <ModalOverlay />
+                                    <ModalContent bg={theme ? 'white' : 'gray.900'}>
+                                        <ModalHeader textAlign={'center'} fontWeight={'bold'} fontFamily={'sans-serif'} color={theme? 'blue.600' : 'white'}>{title}</ModalHeader>
+                                        <Divider/>
+                                        <ModalCloseButton bg={theme ? 'gray.100' : 'gray.600'} color={theme ? 'blue.600' : 'white'} variant={theme? 'outline' : 'solid'} />
+                                        
+                                        <ModalBody>
+                                        <FormControl as='fieldset'>
+                                            <FormLabel color={theme? 'blue.600' : 'white'} as='legend'>{`Valora: ${title}`}  </FormLabel>
+                                            <RadioGroup >
+                                                <Box display={'flex'} justifyContent={'space-around'}>
+                                                <Radio size={'lg'}  value='1' onChange={(e)=> setPuntos(e.target.value)}>  
+                                                    <Circle size='30px' bg={theme ? 'blue.600' : 'linkedin.500'} color='white'>
+                                                        1
+                                                    </Circle>
+                                                </Radio>
+                                                <Radio size={'lg'}  value='2' onChange={(e)=> setPuntos(e.target.value)}>
+                                                    <Circle size='30px' bg={theme ? 'blue.600' : 'linkedin.500'} color='white'>
+                                                        2
+                                                    </Circle>
+                                                </Radio>
+                                                <Radio size={'lg'}  value='3' onChange={(e)=> setPuntos(e.target.value)}>
+                                                    <Circle size='30px' bg={theme ? 'blue.600' : 'linkedin.500'} color='white'>
+                                                        3
+                                                    </Circle>
+                                                </Radio>
+                                                <Radio size={'lg'}  value='4' onChange={(e)=> setPuntos(e.target.value)}>
+                                                    <Circle size='30px' bg={theme ? 'blue.600' : 'linkedin.500'} color='white'>
+                                                        4
+                                                    </Circle>
+                                                </Radio>
+                                                <Radio size={'lg'}  value='5' onChange={(e)=> setPuntos(e.target.value)}>
+                                                    <Circle size='30px' bg={theme ? 'blue.600' : 'linkedin.500'} color='white'>
+                                                        5
+                                                    </Circle>
+                                                </Radio>
+                                                </Box>
+                                            </RadioGroup>
+                                            <Button onClick={()=> console.log(dispatch(votar( {id, reviewCount, rating: (parseInt(rating)+ parseInt(Puntos))/5 } )))} mt={3} colorScheme={'blue'} variant={theme ? 'outline' : 'solid'}>Votar</Button>
+                                            </FormControl>
+                                        </ModalBody>
+                                        <Divider/>
+                                        <ModalFooter>
+                                            <Button colorScheme='blue' variant={theme ? 'outline' : 'solid'} mr={3} onClick={onClose}>
+                                                Close
+                                            </Button>
+                                            
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
 
                             <Box display={'flex'} alignItems='center' w={{base: '20%'}}>
                                 

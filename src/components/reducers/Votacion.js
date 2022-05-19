@@ -222,16 +222,31 @@ const movies = [
   
   ]
 
+const mapp = movies.map(e=> (
+    {   
+        img: e.img,
+        title: e.title,
+        id: e.id,
+        reviewCount: e.reviewCount,
+        rating: e.rating
+    }
+    ))
+console.log(mapp)
+
 
 
 export const voteSlice = createSlice({
     name: 'vote',
-    initialState: {value : movies},
+    initialState: {value : mapp},
     reducers:{
         votar: (state, action)=>{
-
-        }
+        let find = state.value.filter(e=> e.id === action.payload.id)
+        find.map(e=> e.reviewCount = action.payload.reviewCount + 1)
+        find.map(e=> e.rating = action.payload.rating)
     }
+}
 })
 
+
+export const {votar} = voteSlice.actions
 export default voteSlice.reducer;
