@@ -234,7 +234,7 @@ const BannerTop = () => {
             </Center>
             <Box display={'flex'} w='100%' h={{base: '270px', md:'320px'}} p={4} color='white' overflowX={'auto'}>
                 
-                {limit.map(e=> <TopContainer id={e.id} key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
+                {limit.map(e=> <TopContainer votos={e.votos} id={e.id} key={e.id} img={e.img} title={e.title} rating={e.rating} reviewCount={e.reviewCount}/>)}
             
             </Box>
         </Box>

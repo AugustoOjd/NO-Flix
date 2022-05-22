@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Box, Stack, Image, Heading, Text, Link, Button, FormControl, FormLabel, Input} from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addText } from '../reducers/TextBox'
-
+import {gsap} from 'gsap'
 
 const InfoMovies = ({title, age, rating, category, img, description, id, type, platform, trailer}) => {
 
@@ -11,6 +11,11 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
   const dispatch = useDispatch()
 
   const [Texto, setTexto] = useState('')
+
+  useEffect(() => {
+    gsap.fromTo('.move', {y: -100}, {y: 0, duration: 1})
+    gsap.fromTo('.move2', {y: -100}, {y: 0, duration: 1})
+}, [textBox])
 
   const enviar = ()=>{
 
@@ -66,13 +71,13 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
                   <Button onClick={ enviar } type='submit' position={'static'}  mt={2} colorScheme='blue'>Enviar</Button>
                 </FormControl>
 
-                <Box mt={3} overflowY={'auto'} h={'300px'}>
+                <Box  mt={3} overflowY={'auto'} h={'300px'}>
 
                     
                     {filtro.map(e=> 
-                      <Box bg={theme ? 'gray.50' : 'gray.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'} p={2}>
-                      <Text fontWeight={'bold'} color={theme ? 'blue.600' : 'blue.700'} >Anonimo: </Text>
-                      <Text color={'black'} fontSize={{base: 'sm', sm: 'md'}} >
+                      <Box className={'move'} bg={theme ? 'gray.50' : 'gray.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'} p={2}>
+                      <Text  fontWeight={'bold'} color={theme ? 'blue.600' : 'blue.700'} >Anonimo: </Text>
+                      <Text  color={'black'} fontSize={{base: 'sm', sm: 'md'}} >
                         {e.coment}
                       </Text>
                       <Text mt={2} fontSize={{base: 'xs'}}>{new Date().toLocaleDateString()}</Text>
@@ -102,7 +107,7 @@ const InfoMovies = ({title, age, rating, category, img, description, id, type, p
                 <Box p={1} mt={3} overflowY={'auto'} h={'300px'}>
                     
                   {filtro.map(e=> 
-                      <Box bg={theme ? 'gray.50' : 'gray.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'} p={2}>
+                      <Box className='move2' bg={theme ? 'gray.50' : 'gray.100'} h={'100px'} borderWidth='1px' borderRadius='lg' border='1px' mb={2} color={'black'} p={2}>
                       <Text fontWeight={'bold'} color={theme ? 'blue.600' : 'blue.700'}>Anonimo: </Text>
                       <Text color={'black'} fontSize={'xl'} >
                         {e.coment}

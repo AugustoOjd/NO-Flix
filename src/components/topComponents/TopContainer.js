@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useDisclosure } from '@chakra-ui/react'
 import { votar } from '../reducers/Votacion'
 
-const TopContainer = ({title, img, rating, reviewCount, id}) => {
+const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const theme = useSelector((state)=> state.theme.value)
@@ -90,7 +90,7 @@ const TopContainer = ({title, img, rating, reviewCount, id}) => {
                                                 </Radio>
                                                 </Box>
                                             </RadioGroup>
-                                            <Button onClick={()=> console.log(dispatch(votar( {id, reviewCount, rating: (parseInt(rating)+ parseInt(Puntos))/5 } )))} mt={3} colorScheme={'blue'} variant={theme ? 'outline' : 'solid'}>Votar</Button>
+                                            <Button onClick={()=> console.log(dispatch(votar( {id, reviewCount, votos: votos.concat(parseInt(Puntos)), rating: parseInt(((votos.reduce((acc, current)=> acc + current, 0))/votos.length).toFixed(1)) } )))} mt={3} colorScheme={'blue'} variant={theme ? 'outline' : 'solid'}>Votar</Button>
                                             </FormControl>
                                         </ModalBody>
                                         <Divider/>
