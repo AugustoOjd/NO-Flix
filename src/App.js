@@ -23,7 +23,7 @@ function App() {
       <Banner/>
       <BannerTop/>
       <Routes>
-          <Route path="/" index element={<AllMovies/>} />
+          <Route path="/NO-Flix" index element={<AllMovies/>} />
             
 
           <Route path="/:categoria" element={ <FiltroMovies/>}/>
