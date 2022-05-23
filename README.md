@@ -8,26 +8,26 @@ Es un aplicacion de React de peliculas y series donde puedes visualizar detalles
 
 ![banner segerencia ](public/assets/banner.png)
 
-- Te muestra el ranking semanal, puedes votar por tu preferida y se verá reflejado automaticamente (manejado con redux)
+- Te muestra el ranking semanal, puedes votar por tu preferida y se verá reflejado automaticamente (manejado con redux).
 
 ![ranking favoritas](public/assets/ranking.png)
 
-- Puedes filtrar la lista completa por los parametros deseados
+- Puedes filtrar la lista completa por los parametros deseados.
 
 ![filtrado](public/assets/filtrados.png)
 
-- Puedes agregar tus favoritas dandole al boton "+" (manejado con redux)
+- Puedes agregar tus favoritas dandole al boton "+" (manejado con redux).
 
 ![favoritas](public/assets/favoritas.png)
 
-- Cada pelicula/serie tiene su caja de comentarios independiente, donde puedes dejar una pequeño comentario (manejado con redux)
+- Cada pelicula/serie tiene su caja de comentarios independiente, donde puedes dejar una pequeño comentario (manejado con redux).
 
 ![textobox](public/assets/boxchat.png)
 
 ## Librerias utilizadas
 
 - Para los estilos se ulitizo chakra-ui y chakra-icons
-- Se utilzo redux toolkit para manejo de estados globales (thema, favoritos, comentarios, votaciones)
+- Se utilizó redux toolkit para manejo de estados globales (thema, favoritos, comentarios, votaciones)
 - Para las animaciones se utilzo gsap
 
 ## Instalaciones
