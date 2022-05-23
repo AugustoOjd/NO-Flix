@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/NO-Flix/static/js/main.fabbf23a.js",
+    "main.js": "/NO-Flix/static/js/main.8fea2b12.js",
     "static/js/787.7c42db31.chunk.js": "/NO-Flix/static/js/787.7c42db31.chunk.js",
     "index.html": "/NO-Flix/index.html",
-    "main.fabbf23a.js.map": "/NO-Flix/static/js/main.fabbf23a.js.map",
+    "main.8fea2b12.js.map": "/NO-Flix/static/js/main.8fea2b12.js.map",
     "787.7c42db31.chunk.js.map": "/NO-Flix/static/js/787.7c42db31.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.fabbf23a.js"
+    "static/js/main.8fea2b12.js"
   ]
 }
