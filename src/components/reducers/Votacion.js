@@ -14,7 +14,7 @@ const movies = [
         platform: 'Netflix',
         type: 'Serie',
         trailer: 'https://www.youtube.com/watch?v=4Ps6nV4wiCE&ab_channel=LeagueofLegends',
-        votos: [2]
+        votos: [2,5]
     },
   
     {
@@ -61,7 +61,7 @@ const movies = [
         platform: 'Netflix, Crunchyroll',
         type: 'Serie',
         trailer: 'https://www.youtube.com/watch?v=V1l0MRT0fS8&ab_channel=MacblinkSkylight',
-        votos: [2,1]
+        votos: [2,1,3]
     },
     {
         id: 5,
@@ -76,7 +76,7 @@ const movies = [
         platform: 'Netflix, Crunchyroll',
         type: 'Serie',
         trailer:'https://www.youtube.com/watch?v=-G9BqkgZXRA&ab_channel=vizmedia',
-        votos: [4]
+        votos: [4,2]
     },
     {
         id: 6,
@@ -247,39 +247,42 @@ const mapp = movies.map(e=> (
         id: e.id,
         reviewCount: e.votos.length,
         votos: e.votos,
-        rating: parseInt(((e.votos.reduce((acc, current)=> acc + current, 0))/e.votos.length).toFixed(1)),
-        type: e.type
+        rating: parseFloat(((e.votos.reduce((acc, current)=> acc + current, 0))/e.votos.length).toFixed(1)),
+        type: e.type,
+        key: e.id
     }
     ))
 
 
-// console.log(mapp)
+const rank = mapp.sort((a,b) => b.rating - a.rating)
 
 
 
 export const voteSlice = createSlice({
     name: 'vote',
-    initialState: {value : mapp},
+    initialState: {value : rank},
     reducers:{
         votar: (state, action)=>{
         let find = state.value.filter(e=> e.id === action.payload.id)
         find.map(e=> e.reviewCount = action.payload.reviewCount + 1)
         find.map(e=> e.rating = action.payload.rating)
         find.map(e=> e.votos = action.payload.votos)
-        // vot.splice(vot.length, 0, action.payload.votos)
-        // find.map(e=> e.rating = action.payload.rating)
-        // let votos = find.map(e=> e.votos.push(action.payload.votos))
-        // find.map(e=> e.rating)
-        // votos.map(e=>e)
-        // votos.push(...votos, action.payload.votos)
-        
-        // let votos = find.map(e=> e.votos = action.payload.votos)
-        // votos.push(action.payload.votos)
-        // console.log(mapp[4])
-    }
+        },
+        changesR: (state)=>{
+            state.value.sort( (a,b) => b.rating - a.rating )
+        },
+        changesR2: (state)=>{
+            state.value.sort( (a,b) => a.rating - b.rating )
+        },
+        changesV: (state)=>{    
+            state.value.sort( (a,b) => b.reviewCount - a.reviewCount)
+        },
+        changesV2: (state)=>{
+            state.value.sort( (a,b) => a.reviewCount - b.reviewCount )
+        }
 }
 })
 
 
-export const {votar} = voteSlice.actions
+export const {votar, changesR, changesR2, changesV, changesV2} = voteSlice.actions
 export default voteSlice.reducer;

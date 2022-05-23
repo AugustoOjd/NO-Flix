@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
-import { HStack, Box, Image, Heading, Text, Button, Circle, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, RadioGroup, Radio, FormHelperText, Divider } from '@chakra-ui/react'
+import React, {useState, useEffect} from 'react'
+import { HStack, Box, Image, Heading, Text, Button, Circle, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, RadioGroup, Radio, Divider, Alert, AlertIcon } from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
 import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useDisclosure } from '@chakra-ui/react'
 import { votar } from '../reducers/Votacion'
+// import {AlertIcon} from '@chakra-ui/icons'
 
 const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
 
@@ -12,10 +13,12 @@ const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
     const theme = useSelector((state)=> state.theme.value)
     const dispatch = useDispatch()
     const [Puntos, setPuntos] = useState()
+    const [Alerta, setAlerta] = useState(false)
 
-    // const sumarVoto = ()=>{
+    useEffect(() => {
 
-    // }
+    }, [])
+    
 
   return (
     <>
@@ -90,7 +93,7 @@ const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
                                                 </Radio>
                                                 </Box>
                                             </RadioGroup>
-                                            <Button onClick={()=> console.log(dispatch(votar( {id, reviewCount, votos: votos.concat(parseInt(Puntos)), rating: parseInt(((votos.reduce((acc, current)=> acc + current, 0))/votos.length).toFixed(1)) } )))} mt={3} colorScheme={'blue'} variant={theme ? 'outline' : 'solid'}>Votar</Button>
+                                            <Button  onClick={()=> onClose(dispatch(votar( {id, reviewCount, votos: votos.concat(parseInt(Puntos)), rating: parseFloat(((votos.reduce((acc, current)=> acc + current, 0))/votos.length).toFixed(1)) } )))} mt={3} colorScheme={'blue'} variant={theme ? 'outline' : 'solid'}>Votar</Button>
                                             </FormControl>
                                         </ModalBody>
                                         <Divider/>
@@ -102,6 +105,7 @@ const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
                                     </ModalFooter>
                                 </ModalContent>
                             </Modal>
+
 
                             <Box display={'flex'} alignItems='center' w={{base: '20%'}}>
                                 

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Box, Heading, Center, Button, Stack, Spinner} from '@chakra-ui/react'
 import { gsap } from 'gsap'
 import {ChevronDownIcon, ChevronUpIcon} from '@chakra-ui/icons'
