@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { HStack, Box, Image, Heading, Text, Button, Circle, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, RadioGroup, Radio, Divider, Alert, AlertIcon } from '@chakra-ui/react'
+import { HStack, Box, Image, Heading, Text, Button, Circle, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, FormControl, FormLabel, RadioGroup, Radio, Divider } from '@chakra-ui/react'
 import RatingContainer from '../allMovieComponents/RatingContainer'
 import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +13,6 @@ const TopContainer = ({title, img, rating, reviewCount, id, votos}) => {
     const theme = useSelector((state)=> state.theme.value)
     const dispatch = useDispatch()
     const [Puntos, setPuntos] = useState()
-    const [Alerta, setAlerta] = useState(false)
 
     useEffect(() => {
 
