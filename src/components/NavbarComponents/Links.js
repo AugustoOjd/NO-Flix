@@ -18,7 +18,7 @@ const Links = () => {
 
 {/* INICIO */}
         <Button display={{base: 'none', md: 'flex'}} colorScheme={dark ? 'linkedin' : 'white'} variant='link' size={'lg'}>
-            <NavLink to={'/'}>
+            <NavLink to={'/NO-Flix'}>
                 Inicio
             </NavLink>
         </Button>

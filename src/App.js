@@ -24,7 +24,6 @@ function App() {
       <BannerTop/>
       <Routes>
           <Route path="/NO-Flix" index element={<AllMovies/>} />
-            
 
           <Route path="/:categoria" element={ <FiltroMovies/>}/>
           
