@@ -6,7 +6,7 @@ Es un aplicacion creada en React, de peliculas y series donde puedes visualizar 
 
 - Al inicio hay un banner donde cagada vez que cagar la pagina, te sugiere una pelicula/serie aleatoria, con una breve informacion.
 
-![banner segerencia ](public%5Cassets%5Cbanner.png)
+![banner segerencia ](public/assets/banner.png)
 
 ## Librerias utilizadas
 
