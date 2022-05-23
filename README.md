@@ -5,7 +5,8 @@ Es un aplicacion creada en React, de peliculas y series donde puedes visualizar 
 ## Como usar la app
 
 - Al inicio hay un banner donde cagada vez que cagar la pagina, te sugiere una pelicula/serie aleatoria, con una breve informacion.
-<img src='/public/assests/banner.png' alt='banner'>
+
+![banner segerencia ](public%5Cassets%5Cbanner.png)
 
 ## Librerias utilizadas
 
